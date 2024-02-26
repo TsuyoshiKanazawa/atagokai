@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
+  repository_dispatch:
+    types: [newt-update]
 
 jobs:
   build:
@@ -27,7 +30,7 @@ jobs:
       uses: SamKirkland/FTP-Deploy-Action@4.1.0
       with:
         server: sv14971.xserver.jp
-        username: xs031129
-        password: atagokai
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
         local-dir: .output/public/
-        server-dir: public_html/
+        server-dir: xs031129.xsrv.jp/public_html/
