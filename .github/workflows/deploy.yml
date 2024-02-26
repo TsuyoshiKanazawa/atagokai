@@ -3,7 +3,7 @@ name: Deploy to Xserver
 on:
   push:
     branches:
-      - main  #デプロイするブランチを指定
+      - main
 
 jobs:
   build:
@@ -15,7 +15,7 @@ jobs:
     - name: Setup Node.js
       uses: actions/setup-node@v1
       with:
-        node-version: '18'  #Nuxt.jsプロジェクトに合わせてNode.jsのバージョンを指定
+        node-version: '18'
 
     - name: Install dependencies
       run: npm install
