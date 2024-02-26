@@ -29,5 +29,5 @@ jobs:
         server: xs031129.xsrv.jp
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
-        local-dir: ./dist/
+        local-dir: .output/public/
         server-dir: /public_html/
