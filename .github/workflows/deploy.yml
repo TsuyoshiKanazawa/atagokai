@@ -23,7 +23,7 @@ jobs:
     - name: Install dependencies
       run: npm install
 
-    - name: Build
+    - name: Generate static project
       run: npm run generate
 
     - name: Deploy to Xserver
