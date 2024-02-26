@@ -27,7 +27,7 @@ jobs:
       uses: SamKirkland/FTP-Deploy-Action@4.1.0
       with:
         server: sv14971.xserver.jp
-        username: ${{ secrets.FTP_USERNAME }}
-        password: ${{ secrets.FTP_PASSWORD }}
+        username: xs031129
+        password: atagokai
         local-dir: .output/public/
         server-dir: public_html/
