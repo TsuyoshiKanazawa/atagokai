@@ -26,7 +26,8 @@ jobs:
     - name: Deploy to Xserver
       uses: SamKirkland/FTP-Deploy-Action@4.1.0
       with:
-        ftp-server: xs031129.xsrv.jp  #XserverのFTPサーバー情報
-        ftp-username: ${{ secrets.FTP_USERNAME }}
-        ftp-password: ${{ secrets.FTP_PASSWORD }}
-        local-dir: ./dist/  #Nuxt.jsのビルド結果が
+        server: xs031129.xsrv.jp
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        local-dir: ./dist/
+        server-dir: /path/to/nuxtjs/dist
