@@ -15,7 +15,7 @@ jobs:
     - name: Setup Node.js
       uses: actions/setup-node@v1
       with:
-        node-version: '14'  #Nuxt.jsプロジェクトに合わせてNode.jsのバージョンを指定
+        node-version: '18'  #Nuxt.jsプロジェクトに合わせてNode.jsのバージョンを指定
 
     - name: Install dependencies
       run: npm install
