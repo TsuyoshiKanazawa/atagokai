@@ -1,0 +1,32 @@
+name: Deploy to Xserver
+
+on:
+  push:
+    branches:
+      - main  #デプロイするブランチを指定
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: '14'  #Nuxt.jsプロジェクトに合わせてNode.jsのバージョンを指定
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Build
+      run: npm run build
+
+    - name: Deploy to Xserver
+      uses: SamKirkland/FTP-Deploy-Action@4.1.0
+      with:
+        ftp-server: xs031129.xsrv.jp  #XserverのFTPサーバー情報
+        ftp-username: ${{ secrets.FTP_USERNAME }}
+        ftp-password: ${{ secrets.FTP_PASSWORD }}
+        local-dir: ./dist/  #Nuxt.jsのビルド結果が
