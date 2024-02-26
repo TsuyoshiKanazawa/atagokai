@@ -33,4 +33,4 @@ jobs:
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
         local-dir: .output/public/
-        server-dir: xs031129.xsrv.jp/public_html/
+        server-dir: /xs031129.xsrv.jp/public_html/
