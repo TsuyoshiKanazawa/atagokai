@@ -21,12 +21,12 @@ jobs:
       run: npm install
 
     - name: Build
-      run: npm run generate
+      run: npm run build
 
     - name: Deploy to Xserver
       uses: SamKirkland/FTP-Deploy-Action@4.1.0
       with:
-        server: xs031129.xsrv.jp
+        server: sv14971.xserver.jp
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
         local-dir: .output/public/
