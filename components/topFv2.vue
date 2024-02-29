@@ -54,13 +54,13 @@ export default {
 <style lang="scss" scoped>
 .top-fv {
     width: 100%;
-    height: 40vw;
+    height: 50vw;
     overflow: hidden;
 
     .fv-container {
 
         .fvImage {
-            width: 23vw;
+            width: 30vw;
         }
     }
 

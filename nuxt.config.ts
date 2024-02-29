@@ -7,7 +7,10 @@ export default defineNuxtConfig({
     head: {
       htmlAttrs: {
         lang: 'ja'
-      }
+      },
+      link: [
+        { rel: "icon", type: "image/svg", href: "/img/logo.svg" }, // これを追記する
+      ],
     }
   },
   runtimeConfig: {

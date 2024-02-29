@@ -9,6 +9,8 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@splidejs/splide-extension-auto-scroll": "^0.5.3",
+    "@splidejs/vue-splide": "^0.6.12",
     "axios": "^1.6.7",
     "newt-client-js": "^3.3.0",
     "nuxt": "^3.10.3",

@@ -23,9 +23,17 @@
             ここで暮らし続けたいという想いを未来へ繋いでいくために。<br>
             <br>
             そんな、くらしの「絆」を、私たちと広げてみませんか。
+            <nuxt-link to="/" class="link">
+              <div class="copy-link-text">愛宕会について</div>
+              <img src="/img/arrow.svg" alt="background" class="arrow">
+            </nuxt-link>
           </div>
         </div>
+
+
+
       </div>
+      <img src="/img/news-top.png" alt="background" class="news-top">
       <div>
         <li v-for="article in processedArticles" :key="article.title">
           {{ article.title }}
@@ -41,7 +49,7 @@ const { data: articles, refresh } = await useAsyncData('articles', fetchArticles
 const processedArticles = computed(() => articles.value?.items ?? []);
 
 onMounted(async () => {
-  await refresh(); // ページがマウントされた直後にデータを更新
+  await refresh();
 });
 
 async function fetchArticles() {
@@ -53,7 +61,7 @@ async function fetchArticles() {
       select: ['title']
     }
   });
-  console.log(response); // これでレスポンスを確認
+  console.log(response);
   return response;
 }
 </script>
@@ -79,14 +87,19 @@ async function fetchArticles() {
       padding-top: 5%;
       .copy-text-Lerge {
         font-size: 7vw;
-        font-weight: 500;
+        font-weight: 600;
+        margin-top: 3%;
       }
-      .copy-text-small {
-        font-size: 1vw;
-        font-weight: 500;
+      .copy-text-Small {
+        font-size: 1.2vw;
+        font-weight: 700;
       }
     }
-  }
 
+  }
+  .news-bottom {
+    width: 100%;
+    margin-top: -15%;
+  }
 }
 </style>
