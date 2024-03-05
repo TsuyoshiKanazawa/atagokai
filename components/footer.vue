@@ -18,7 +18,7 @@
             <div class="right">
                 <ul>
                     <li class="footer-menu"><nuxt-link to="/">TOP</nuxt-link></li>
-                    <li class="footer-menu"><nuxt-link to="/">お知らせ</nuxt-link></li>
+                    <li class="footer-menu"><nuxt-link to="/news">お知らせ</nuxt-link></li>
                     <li class="footer-menu grey"><nuxt-link to="/">法人概要</nuxt-link></li>
                     <li class="footer-menu grey"><nuxt-link to="/">施設・サービス一覧</nuxt-link></li>
                     <li class="footer-menu grey"><nuxt-link to="/">採用情報</nuxt-link></li>
@@ -35,7 +35,7 @@ footer {
     width: 100%;
     overflow: hidden;
     .footer-contact {
-        background-image: url("img/footer-back.png");
+        background-image: url("/img/footer-back.png");
         background-size: cover;
         width: 100%;
         box-sizing: border-box;

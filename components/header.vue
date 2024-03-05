@@ -1,11 +1,11 @@
 <template>
-    <header>
-        <div class="header-left">
+    <header :class="{'hide-header': hideHeader}">
+        <nuxt-link to="/" class="header-left">
             <img src="/img/logo.svg" alt="logo" class="logo">
             <div class="name">社会福祉法人 愛宕会</div>
-        </div>
+        </nuxt-link>
         <div class="header-menu">
-            <div class="header-menu-content"><img src="/img/newsLogo.svg" alt="menu-logo" class="menu-logo"><nuxt-link to="news">お知らせ</nuxt-link></div>
+            <div class="header-menu-content"><img src="/img/newsLogo.svg" alt="menu-logo" class="menu-logo"><nuxt-link to="/news">お知らせ</nuxt-link></div>
             <div class="header-menu-content grey"><img src="/img/newsLogo.svg" alt="menu-logo" class="menu-logo"><div>愛宕会について</div></div>
             <div class="header-menu-content grey"><img src="/img/newsLogo.svg" alt="menu-logo" class="menu-logo"><div>施設・サービス一覧</div></div>
             <div class="header-menu-content grey"><img src="/img/newsLogo.svg" alt="menu-logo" class="menu-logo"><div>採用情報</div></div>
@@ -13,6 +13,41 @@
         </div>
     </header>
 </template>
+
+<script>
+export default {
+    data() {
+        return {
+            scrollCount: 0,
+            lastScrollTop: 0,
+            hideHeader: false,
+        };
+    },
+    methods: {
+        handleScroll() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (scrollTop > this.lastScrollTop) {
+                // 下にスクロール
+                this.scrollCount++;
+                if (this.scrollCount >= 2) {
+                    this.hideHeader = true;
+                }
+            } else {
+                // 上にスクロール
+                this.scrollCount = 0; // カウントをリセット
+                this.hideHeader = false;
+            }
+            this.lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // ネガティブな値を避ける
+        },
+    },
+    mounted() {
+        window.addEventListener('scroll', this.handleScroll);
+    },
+    beforeDestroy() {
+        window.removeEventListener('scroll', this.handleScroll);
+    },
+}
+</script>
 
 <style lang="scss" scoped>
     header {
@@ -26,6 +61,7 @@
         box-sizing: border-box;
         position: fixed;
         z-index: 100;
+        transition: transform 0.3s ease;
         .header-left {
             display: flex;
             .logo {
@@ -77,5 +113,9 @@
                 }
             }
         }
+    }
+    .hide-header {
+        transform: translateY(-100%);
+        transition: transform 0.3s ease;
     }
 </style>

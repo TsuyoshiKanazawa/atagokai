@@ -54,6 +54,7 @@
 
 <script setup>
 import { onMounted } from 'vue';
+import recruitLink from '~/components/recruitLink.vue';
 const { data: articles, refresh } = await useAsyncData('articles', fetchArticles);
 const processedArticles = computed(() => articles.value?.items ?? []);
 const firstTwoArticles = computed(() => processedArticles.value.slice(0, 5));
@@ -91,23 +92,22 @@ function formatContent(content) {
 
 <style lang="scss" scoped>
 .container {
-  width: 100%;
+  width: 80vw;
   margin: auto;
-  overflow: hidden;
 
   .top-copy {
     position: relative;
     .fv-bottom {
       width: 101%;
       position: absolute;
-      top: -14vw;
-      left: 0;
+      top: -9vw;
+      left: -0.5vw;
     }
     .copy-text {
       display: flex;
       justify-content: center;
       gap: 5%;
-      padding-top: 1%;
+      padding-top: 5%;
       .copy-text-Lerge {
         font-size: 7vw;
         font-weight: 600;
@@ -182,6 +182,8 @@ function formatContent(content) {
     }
     .link {
       margin: 2% 0 0 auto;
+      z-index: 1;
+      position: relative;
     }
   }
 }
