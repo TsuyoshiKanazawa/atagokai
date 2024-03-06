@@ -23,6 +23,10 @@
 
 <script setup>
 import { onMounted, ref, computed } from 'vue';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 const { data: articles, refresh } = await useAsyncData('articles', fetchArticles);
 const selectedYear = ref(new Date().getFullYear());
 
@@ -36,7 +40,21 @@ const filteredArticles = computed(() => {
 });
 
 onMounted(async () => {
-  await refresh();
+    await refresh();
+
+    document.querySelectorAll('.news-content').forEach((element) => {
+        gsap.from(element, {
+            scrollTrigger: {
+                trigger: element,
+                start: "top 85%",
+                end: "bottom top",
+                toggleActions: "play none none none",
+            },
+            opacity: 0,
+            duration: 1,
+            y: 30
+        });
+  });
 });
 
 async function fetchArticles() {
@@ -63,7 +81,12 @@ function formatDate(dateString) {
 function formatContent(content) {
     return content.replace(/\n/g, '<br>');
 }
-
+useHead({
+  title: 'お知らせ | 社会福祉法人 愛宕会',
+  meta: [
+    { name: 'ogTitle', content: 'お知らせ | 社会福祉法人 愛宕会' },
+  ],
+})
 </script>
 <style lang="scss" scoped>
 .news-top {

@@ -13,7 +13,9 @@
                 <div class="address">社会福祉法人愛宕会<br>
                     〒685-0311 島根県隠岐郡隠岐の島町郡４２５番５<br>
                     TEL 08512-5-3811  FAX 08512-5-3812</div>
-                <img src="/img/footer-banner1.jpg" alt="banner" class="banner">
+                <a href="https://www.town.okinoshima.shimane.jp/www/index.html" target="_blank">
+                    <img src="/img/footer-banner1.jpg" alt="banner" class="banner">
+                </a>
             </div>
             <div class="right">
                 <ul>
@@ -92,6 +94,26 @@ footer {
                         opacity: 0.3;
                         pointer-events: none;
                     }
+                a {
+                    position: relative;
+                }
+                a::after {
+                    position: absolute;
+                    left: 0;
+                    content: '';
+                    width: 100%;
+                    height: 2px;
+                    background: #000000;
+                    bottom: -5px;
+                    transform: scale(0, 1);
+                    transform-origin: center top;
+                    transition: transform 0.3s;
+                }
+                &:hover {
+                    a::after {
+                        transform: scale(1, 1);
+                    }
+                }
                 }
             }
         }

@@ -13,6 +13,7 @@
     "@splidejs/splide-extension-intersection": "^0.2.0",
     "@splidejs/vue-splide": "^0.6.12",
     "axios": "^1.6.7",
+    "gsap": "^3.12.5",
     "newt-client-js": "^3.3.0",
     "nuxt": "^3.10.3",
     "vue": "^3.4.19",

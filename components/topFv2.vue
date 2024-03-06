@@ -14,6 +14,9 @@
             <SplideSlide>
                 <img src="/img/fvImage3.jpg" alt="fv3" class="fvImage">
             </SplideSlide>
+            <SplideSlide>
+                <img src="/img/fvImage4.jpg" alt="fv3" class="fvImage">
+            </SplideSlide>
         </Splide>
     </div>
 </template>

@@ -56,13 +56,54 @@
 
 <script setup>
 import { onMounted } from 'vue';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import recruitLink from '~/components/recruitLink.vue';
+
+gsap.registerPlugin(ScrollTrigger);
 const { data: articles, refresh } = await useAsyncData('articles', fetchArticles);
 const processedArticles = computed(() => articles.value?.items ?? []);
 const firstTwoArticles = computed(() => processedArticles.value.slice(0, 5));
 
 onMounted(async () => {
   await refresh();
+  
+  gsap.from(".copy-text-Lerge", {
+    scrollTrigger: {
+      trigger: ".copy-text-Lerge",
+      start: "top 80%",
+      toggleActions: "play none none none"
+    },
+    opacity: 0,
+    duration: 1,
+    y: 50
+  });
+
+  gsap.from(".copy-text-Small", {
+    scrollTrigger: {
+      trigger: ".copy-text-Small",
+      start: "top 80%",
+      toggleActions: "play none none none"
+    },
+    opacity: 0,
+    duration: 1,
+    delay: 0.5,
+    y: 50
+  });
+
+  document.querySelectorAll('.news-content').forEach((element) => {
+    gsap.from(element, {
+      scrollTrigger: {
+        trigger: element,
+        start: "top 85%",
+        end: "bottom top",
+        toggleActions: "play none none none",
+      },
+      opacity: 0,
+      duration: 1,
+      y: 30
+    });
+  });
 });
 
 async function fetchArticles() {
