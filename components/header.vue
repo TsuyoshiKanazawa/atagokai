@@ -6,10 +6,10 @@
         </nuxt-link>
         <div class="header-menu">
             <div class="header-menu-content"><img src="/img/newsLogo.svg" alt="menu-logo" class="menu-logo"><nuxt-link to="/news">お知らせ</nuxt-link></div>
-            <div class="header-menu-content grey"><img src="/img/newsLogo.svg" alt="menu-logo" class="menu-logo"><div>愛宕会について</div></div>
-            <div class="header-menu-content grey"><img src="/img/newsLogo.svg" alt="menu-logo" class="menu-logo"><div>施設・サービス一覧</div></div>
-            <div class="header-menu-content grey"><img src="/img/newsLogo.svg" alt="menu-logo" class="menu-logo"><div>採用情報</div></div>
-            <div class="header-menu-content grey"><img src="/img/newsLogo.svg" alt="menu-logo" class="menu-logo"><div>お問い合わせ</div></div>
+            <div class="header-menu-content"><img src="/img/aboutLogo.svg" alt="menu-logo" class="menu-logo"><nuxt-link to="/">愛宕会について</nuxt-link></div>
+            <div class="header-menu-content"><img src="/img/serviceLogo.svg" alt="menu-logo" class="menu-logo"><nuxt-link to="/">施設・サービス一覧</nuxt-link></div>
+            <div class="header-menu-content"><img src="/img/recruitLogo.svg" alt="menu-logo" class="menu-logo"><nuxt-link to="/">採用情報</nuxt-link></div>
+            <div class="header-menu-content"><img src="/img/contactLogo.svg" alt="menu-logo" class="menu-logo"><nuxt-link to="/">お問い合わせ</nuxt-link></div>
         </div>
     </header>
 </template>

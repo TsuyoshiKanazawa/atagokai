@@ -6,7 +6,7 @@
         </div>
         <div class="service-link">
             <img src="/img/serviceLink.png" alt="background" class="service-link-image">
-            <nuxt-link to="/news" class="link">
+            <nuxt-link to="/" class="link">
                 <div class="copy-link-text">ご利用を検討中の方はこちら</div>
                 <img src="/img/arrow.svg" alt="background" class="arrow">
             </nuxt-link>

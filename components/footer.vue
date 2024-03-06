@@ -21,10 +21,10 @@
                 <ul>
                     <li class="footer-menu"><nuxt-link to="/">TOP</nuxt-link></li>
                     <li class="footer-menu"><nuxt-link to="/news">お知らせ</nuxt-link></li>
-                    <li class="footer-menu grey"><nuxt-link to="/">法人概要</nuxt-link></li>
-                    <li class="footer-menu grey"><nuxt-link to="/">施設・サービス一覧</nuxt-link></li>
-                    <li class="footer-menu grey"><nuxt-link to="/">採用情報</nuxt-link></li>
-                    <li class="footer-menu grey"><nuxt-link to="/">個人情報保護方針</nuxt-link></li>
+                    <li class="footer-menu"><nuxt-link to="/">法人概要</nuxt-link></li>
+                    <li class="footer-menu"><nuxt-link to="/">施設・サービス一覧</nuxt-link></li>
+                    <li class="footer-menu"><nuxt-link to="/">採用情報</nuxt-link></li>
+                    <li class="footer-menu"><nuxt-link to="/">個人情報保護方針</nuxt-link></li>
                 </ul>
             </div>
         </div>
