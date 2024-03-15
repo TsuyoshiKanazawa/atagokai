@@ -88,6 +88,7 @@ useHead({
   ],
 })
 </script>
+
 <style lang="scss" scoped>
 .news-top {
     position: relative;
