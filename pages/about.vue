@@ -1,160 +1,168 @@
 <template>
-    <div>
-        <div class="about">
-            <div class="about-top">
-                <img src="/img/about-top.png" alt="background" class="about-top-image">
-                <div class="about-top-title">
-                    <p>about</p>
-                    <h1>愛宕会について</h1>
-                </div>
-            </div>
-            <div class="about-mv">
-                <div class="mission">
-                    <div class="title">mission<br><span>ミッション</span></div>
-                    <div class="text">One for all smile<br><span>愛宕会は福祉事業を通じて、地域の笑顔を創造する</span></div>
-                </div>
-                <div class="vision">
-                    <div class="title">vision<br><span>ビジョン</span></div>
-                    <div class="right">
-                        <img src="/img/vision-line.svg" alt="line" class="line">
-                        <div class="texts">
-                            <div class="text">One person</div>
-                            <div class="text">One action</div>
-                            <div class="text">One future</div>
-                        </div>
-                        <div class="bottom-text">一つ一つを大切に一人一人が未来のためになる活動をする</div>
-                    </div>
-                </div>
-            </div>
-            <div class="corporation">
-                <img src="/img/corporation-top.png" alt="background" class="corporation-top-image">
-                <div class="corporation-title">法人概要</div>
-                <div class="table-container">
-                    <div class="column">
-                        <div class="name">名称</div>
-                        <div class="text">社会福祉法人 愛宕会</div>
-                    </div>
-                    <div class="column">
-                        <div class="name">代表者氏名</div>
-                        <div class="text">理事長　村上 和弘</div>
-                    </div>
-                    <div class="column">
-                        <div class="name">役員</div>
-                        <div class="text">理事６名（理事長含む） 監事２名</div>
-                    </div>
-                    <div class="column">
-                        <div class="name">所在地</div>
-                        <div class="text">〒685-0311　島根県隠岐郡隠岐の島町郡４２５番５</div>
-                    </div>
-                    <div class="column">
-                        <div class="name">TEL</div>
-                        <div class="text">08512-5-3811</div>
-                    </div>
-                    <div class="column">
-                        <div class="name">FAX</div>
-                        <div class="text">08512-5-3812</div>
-                    </div>
-                    <div class="column">
-                        <div class="name">MAIL</div>
-                        <div class="text">nagomien@shore.ocn.ne.jp</div>
-                    </div>
-                </div>
 
+    <div class="about">
+        <div class="about-top">
+            <img src="/img/about-top.png" alt="background" class="about-top-image">
+            <div class="about-top-title">
+                <p>about</p>
+                <h1>愛宕会について</h1>
             </div>
-            <div class="certification">
-                <div class="certification-title">認証制度</div>
-                <div class="certification-logo">
-                    <img src="/img/kokkoro.svg" alt="background" class="kokkoro-logo">
-                    <img src="/img/girlSupport.svg" alt="background" class="girlSupport-logo">
+        </div>
+        <div class="about-mv">
+            <div class="mission">
+                <div class="title">mission<br><span>ミッション</span></div>
+                <div class="text">One for all smile<br><span>愛宕会は福祉事業を通じて、地域の笑顔を創造する</span></div>
+            </div>
+            <div class="vision">
+                <div class="title">vision<br><span>ビジョン</span></div>
+                <div class="right">
+                    <img src="/img/vision-line.svg" alt="line" class="line">
+                    <div class="texts">
+                        <div class="text">One person</div>
+                        <div class="text">One action</div>
+                        <div class="text">One future</div>
+                    </div>
+                    <div class="bottom-text">一つ一つを大切に一人一人が未来のためになる活動をする</div>
                 </div>
             </div>
-            <div class="history">
-                <img src="/img/history-top.png" alt="background" class="history-top-image">
-                <div class="history-title">沿革</div>
-                <img src="/img/history.png" alt="background" class="history-image">
-            </div>
-            <div class="link">
-                <a href="/" target="_blank">
-                    <div class="link-text">行動計画</div>
-                    <img src="/img/about-link-arrow.svg" alt="background" class="link-arrow">
-                </a>
-                <a  href="/" target="_blank">
-                    <div class="link-text">定款・決算書等</div>
-                    <img src="/img/about-link-arrow.svg" alt="background" class="link-arrow">
-                </a>
-                <a href="/" target="_blank">
-                    <div class="link-text">処遇改善計画書</div>
-                    <img src="/img/about-link-arrow.svg" alt="background" class="link-arrow">
-                </a>
-                <a href="/" target="_blank">
-                    <div class="link-text">広報</div>
-                    <img src="/img/about-link-arrow.svg" alt="background" class="link-arrow">
-                </a>
-            </div>
-            <recruitLink />
-            <service />
         </div>
+        <div class="corporation">
+            <img src="/img/corporation-top.png" alt="background" class="corporation-top-image">
+            <div class="corporation-title">法人概要</div>
+            <div class="table-container">
+                <div class="column">
+                    <div class="name">名称</div>
+                    <div class="text">社会福祉法人 愛宕会</div>
+                </div>
+                <div class="column">
+                    <div class="name">代表者氏名</div>
+                    <div class="text">理事長　村上 和弘</div>
+                </div>
+                <div class="column">
+                    <div class="name">役員</div>
+                    <div class="text">理事６名（理事長含む） 監事２名</div>
+                </div>
+                <div class="column">
+                    <div class="name">所在地</div>
+                    <div class="text">〒685-0311　島根県隠岐郡隠岐の島町郡４２５番５</div>
+                </div>
+                <div class="column">
+                    <div class="name">TEL</div>
+                    <div class="text">08512-5-3811</div>
+                </div>
+                <div class="column">
+                    <div class="name">FAX</div>
+                    <div class="text">08512-5-3812</div>
+                </div>
+                <div class="column">
+                    <div class="name">MAIL</div>
+                    <div class="text">nagomien@shore.ocn.ne.jp</div>
+                </div>
+            </div>
+
+        </div>
+        <div class="certification">
+            <div class="certification-title">認証制度</div>
+            <div class="certification-logo">
+                <img src="/img/kokkoro.svg" alt="background" class="kokkoro-logo">
+                <img src="/img/girlSupport.svg" alt="background" class="girlSupport-logo">
+            </div>
+        </div>
+        <div class="history">
+            <img src="/img/history-top.png" alt="background" class="history-top-image">
+            <div class="history-title">沿革</div>
+            <img src="/img/history.png" alt="background" class="history-image">
+        </div>
+        <div class="link">
+            <a href="/" target="_blank">
+                <div class="link-text">行動計画</div>
+                <img src="/img/about-link-arrow.svg" alt="background" class="link-arrow">
+            </a>
+            <a  href="/" target="_blank">
+                <div class="link-text">定款・決算書等</div>
+                <img src="/img/about-link-arrow.svg" alt="background" class="link-arrow">
+            </a>
+            <a href="/" target="_blank">
+                <div class="link-text">処遇改善計画書</div>
+                <img src="/img/about-link-arrow.svg" alt="background" class="link-arrow">
+            </a>
+            <a href="/" target="_blank">
+                <div class="link-text">広報</div>
+                <img src="/img/about-link-arrow.svg" alt="background" class="link-arrow">
+            </a>
+        </div>
+        <recruitLink />
+        <service />
     </div>
+
 </template>
 
 <script setup>
-import { onMounted, ref, computed } from 'vue';
+import { onMounted } from 'vue';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
+import { nextTick } from 'vue';
 gsap.registerPlugin(ScrollTrigger);
 
 onMounted(() => {
-    gsap.from(".mission", {
-        scrollTrigger: {
-        trigger: ".mission",
-        start: "top 80%",
-        toggleActions: "play none none none"
-        },
-        opacity: 0,
-        duration: 0.5,
-        y: 50
+    
+    nextTick(() => {
+        ScrollTrigger.refresh(true);
+        setTimeout(() => {
+            gsap.from(".mission", {
+                scrollTrigger: {
+                    trigger: ".mission",
+                    start: "top 80%",
+                    toggleActions: "play none none none",
+                },
+                opacity: 0,
+                duration: 0.5,
+                y: 50
+            });
+            gsap.from(".vision", {
+                scrollTrigger: {
+                    trigger: ".vision",
+                    start: "top 80%",
+                    toggleActions: "play none none none",
+                },
+                opacity: 0,
+                duration: 0.5,
+                y: 50
+            });
+            gsap.from(".table-container", {
+                scrollTrigger: {
+                    trigger: ".corporation",
+                    start: "top 60%",
+                    toggleActions: "play none none none",
+                },
+                opacity: 0,
+                duration: 0.5,
+                y: 50
+            });
+            gsap.from(".certification-logo", {
+                scrollTrigger: {
+                    trigger: ".certification",
+                    start: "top 80%",
+                    toggleActions: "play none none none"
+                },
+                opacity: 0,
+                duration: 0.5,
+                y: 50
+            });
+            gsap.from(".history-image", {
+                scrollTrigger: {
+                    trigger: ".history",
+                    start: "top 50%",
+                    toggleActions: "play none none none"
+                },
+                opacity: 0,
+                duration: 0.5,
+                y: 50
+            });
+        }, 300);
+
     });
-    gsap.from(".vision", {
-        scrollTrigger: {
-        trigger: ".vision",
-        start: "top 80%",
-        toggleActions: "play none none none"
-        },
-        opacity: 0,
-        duration: 0.5,
-        y: 50
-    });
-    gsap.from(".table-container", {
-        scrollTrigger: {
-        trigger: ".corporation",
-        start: "top 60%",
-        toggleActions: "play none none none"
-        },
-        opacity: 0,
-        duration: 0.5,
-        y: 50
-    });
-    gsap.from(".certification-logo", {
-        scrollTrigger: {
-        trigger: ".certification",
-        start: "top 80%",
-        toggleActions: "play none none none"
-        },
-        opacity: 0,
-        duration: 0.5,
-        y: 50
-    });
-    gsap.from(".history-image", {
-        scrollTrigger: {
-        trigger: ".history",
-        start: "top 50%",
-        toggleActions: "play none none none"
-        },
-        opacity: 0,
-        duration: 0.5,
-        y: 50
-    });
+
 });
 
 useHead({

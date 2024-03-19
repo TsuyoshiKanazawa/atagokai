@@ -5,11 +5,11 @@
             <div class="name">社会福祉法人 愛宕会</div>
         </nuxt-link>
         <div class="header-menu">
-            <div class="header-menu-content"><img src="/img/newsLogo.svg" alt="menu-logo" class="menu-logo"><nuxt-link to="/news">お知らせ</nuxt-link></div>
-            <div class="header-menu-content"><img src="/img/aboutLogo.svg" alt="menu-logo" class="menu-logo"><nuxt-link to="/about">愛宕会について</nuxt-link></div>
-            <div class="header-menu-content"><img src="/img/serviceLogo.svg" alt="menu-logo" class="menu-logo"><nuxt-link to="/">施設・サービス一覧</nuxt-link></div>
-            <div class="header-menu-content"><img src="/img/recruitLogo.svg" alt="menu-logo" class="menu-logo"><nuxt-link to="/">採用情報</nuxt-link></div>
-            <div class="header-menu-content"><img src="/img/contactLogo.svg" alt="menu-logo" class="menu-logo"><nuxt-link to="/">お問い合わせ</nuxt-link></div>
+            <div class="header-menu-content"><img src="/img/newsLogo.svg" alt="menu-logo" class="menu-logo"><div @click="routeEnter('news')" class="menu-link">お知らせ</div></div>
+            <div class="header-menu-content"><img src="/img/aboutLogo.svg" alt="menu-logo" class="menu-logo"><div @click="routeEnter('about')" class="menu-link">愛宕会について</div></div>
+            <div class="header-menu-content"><img src="/img/serviceLogo.svg" alt="menu-logo" class="menu-logo"><div @click="routeEnter('service')" class="menu-link">施設・サービス一覧</div></div>
+            <div class="header-menu-content"><img src="/img/recruitLogo.svg" alt="menu-logo" class="menu-logo"><div @click="routeEnter('')" class="menu-link">採用情報</div></div>
+            <div class="header-menu-content"><img src="/img/contactLogo.svg" alt="menu-logo" class="menu-logo"><div @click="routeEnter('')" class="menu-link">お問い合わせ</div></div>
         </div>
     </header>
 </template>
@@ -39,6 +39,9 @@ export default {
             }
             this.lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // ネガティブな値を避ける
         },
+        routeEnter(link) {
+            this.$router.push(`/${link}`)
+        }
     },
     mounted() {
         window.addEventListener('scroll', this.handleScroll);
@@ -88,10 +91,11 @@ export default {
                 .menu-logo {
                     width: 2vw;
                 }
-                a {
+                .menu-link {
                     position: relative;
+                    cursor: pointer;
                 }
-                a::after {
+                .menu-link::after {
                     position: absolute;
                     left: 0;
                     content: '';
@@ -104,7 +108,7 @@ export default {
                     transition: transform 0.3s;
                 }
                 &:hover {
-                    a::after {
+                    .menu-link::after {
                         transform: scale(1, 1);
                     }
                 }

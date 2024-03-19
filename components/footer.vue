@@ -19,18 +19,28 @@
             </div>
             <div class="right">
                 <ul>
-                    <li class="footer-menu"><nuxt-link to="/">TOP</nuxt-link></li>
-                    <li class="footer-menu"><nuxt-link to="/news">お知らせ</nuxt-link></li>
-                    <li class="footer-menu"><nuxt-link to="/about">法人概要</nuxt-link></li>
-                    <li class="footer-menu"><nuxt-link to="/">施設・サービス一覧</nuxt-link></li>
-                    <li class="footer-menu"><nuxt-link to="/">採用情報</nuxt-link></li>
-                    <li class="footer-menu"><nuxt-link to="/">個人情報保護方針</nuxt-link></li>
+                    <li class="footer-menu"><div @click="routeEnter('')" class="menu-link">TOP</div></li>
+                    <li class="footer-menu"><div @click="routeEnter('news')" class="menu-link">お知らせ</div></li>
+                    <li class="footer-menu"><div @click="routeEnter('about')" class="menu-link">法人概要</div></li>
+                    <li class="footer-menu"><div @click="routeEnter('service')" class="menu-link">施設・サービス一覧</div></li>
+                    <li class="footer-menu"><div @click="routeEnter('')" class="menu-link">採用情報</div></li>
+                    <li class="footer-menu"><div @click="routeEnter('')" class="menu-link">お問い合わせ</div></li>
                 </ul>
             </div>
         </div>
         <div class="copyright">© 2024 Social welfare corporation ATAGOKAI all rights reserved.</div>
     </footer>
 </template>
+
+<script>
+export default {
+    methods: {
+        routeEnter(link) {
+            this.$router.push(`/${link}`)
+        }
+    },
+}
+</script>
 
 <style lang="scss" scoped>
 footer {
@@ -94,10 +104,12 @@ footer {
                         opacity: 0.3;
                         pointer-events: none;
                     }
-                a {
+                .menu-link {
                     position: relative;
+                    cursor: pointer;
+                    width: fit-content;
                 }
-                a::after {
+                .menu-link::after {
                     position: absolute;
                     left: 0;
                     content: '';
@@ -106,11 +118,11 @@ footer {
                     background: #000000;
                     bottom: -5px;
                     transform: scale(0, 1);
-                    transform-origin: center top;
+                    transform-origin: left top;
                     transition: transform 0.3s;
                 }
                 &:hover {
-                    a::after {
+                    .menu-link::after {
                         transform: scale(1, 1);
                     }
                 }

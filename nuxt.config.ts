@@ -9,7 +9,7 @@ export default defineNuxtConfig({
         lang: 'ja'
       },
       link: [
-        { rel: "icon", type: "image/svg", href: "/img/logo.svg" }, // これを追記する
+        { rel: "icon", type: "image/svg", href: "/img/logo.svg" },
       ],
     }
   },
