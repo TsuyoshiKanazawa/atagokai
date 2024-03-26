@@ -1,7 +1,7 @@
 <template>
     <div class="news">
         <div class="news-top">
-            <img src="/img/news-top.jpg" alt="background" class="news-top-image">
+            <img src="/img/news-top.png" alt="background" class="news-top-image">
             <div class="news-top-title">お知らせ</div>
         </div>
         <div class="filter-container">
@@ -92,6 +92,8 @@ useHead({
 <style lang="scss" scoped>
 .news-top {
     position: relative;
+    overflow: hidden;
+    height: 49vw;
     .news-top-image {
         width: 100%;
     }
@@ -107,7 +109,7 @@ useHead({
 }
 .filter-container {
     width: 80%;
-    margin: 2% auto;
+    margin: -4% auto 2%;
     position: relative;
     .select-box {
         width: 8vw;

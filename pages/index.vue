@@ -30,7 +30,7 @@
           </div>
         </div>
       </div>
-      <img src="/img/news-top.png" alt="background" class="news-top">
+      <img src="/img/news-top-pic.png" alt="background" class="news-top">
       <div class="top-news">
         <div class="top-news-title">
           <img src="/img/newsLogo.svg" alt="title-logo" class="title-logo">
