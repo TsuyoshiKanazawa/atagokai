@@ -14,6 +14,9 @@
             <SplideSlide>
                 <img src="/img/fvImage3.jpg" alt="fv3" class="fvImage">
             </SplideSlide>
+            <SplideSlide>
+                <img src="/img/fvImage4.jpg" alt="fv3" class="fvImage">
+            </SplideSlide>
         </Splide>
     </div>
 </template>
@@ -54,13 +57,13 @@ export default {
 <style lang="scss" scoped>
 .top-fv {
     width: 100%;
-    height: 40vw;
+    height: 50vw;
     overflow: hidden;
 
     .fv-container {
 
         .fvImage {
-            width: 23vw;
+            width: 30vw;
         }
     }
 

@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="container">
-      <topFv2 />
+      <topFv />
       <div class="top-copy">
         <img src="/img/fv-bottom.png" alt="background" class="fv-bottom">
         <div class="copy-text">
