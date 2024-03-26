@@ -51,10 +51,10 @@ onMounted(async () => {
                 toggleActions: "play none none none",
             },
             opacity: 0,
-            duration: 1,
+            duration: 0.5,
             y: 30
         });
-  });
+    });
 });
 
 async function fetchArticles() {

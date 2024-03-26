@@ -105,7 +105,6 @@ import { nextTick } from 'vue';
 gsap.registerPlugin(ScrollTrigger);
 
 onMounted(() => {
-    
     nextTick(() => {
         ScrollTrigger.refresh(true);
         setTimeout(() => {
