@@ -23,7 +23,7 @@
                     <li class="footer-menu"><div @click="routeEnter('news')" class="menu-link">お知らせ</div></li>
                     <li class="footer-menu"><div @click="routeEnter('about')" class="menu-link">法人概要</div></li>
                     <li class="footer-menu"><div @click="routeEnter('service')" class="menu-link">施設・サービス一覧</div></li>
-                    <li class="footer-menu"><div @click="routeEnter('')" class="menu-link">採用情報</div></li>
+                    <li class="footer-menu"><div @click="routeEnter('recruit')" class="menu-link">採用情報</div></li>
                     <li class="footer-menu"><div @click="routeEnter('privacy')" class="menu-link">個人情報保護方針</div></li>
                 </ul>
             </div>

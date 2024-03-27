@@ -5,11 +5,21 @@
             <div class="name">社会福祉法人 愛宕会</div>
         </nuxt-link>
         <div class="header-menu">
-            <div class="header-menu-content"><img src="/img/newsLogo.svg" alt="menu-logo" class="menu-logo"><div @click="routeEnter('news')" class="menu-link">お知らせ</div></div>
-            <div class="header-menu-content"><img src="/img/aboutLogo.svg" alt="menu-logo" class="menu-logo"><div @click="routeEnter('about')" class="menu-link">愛宕会について</div></div>
-            <div class="header-menu-content"><img src="/img/serviceLogo.svg" alt="menu-logo" class="menu-logo"><div @click="routeEnter('service')" class="menu-link">施設・サービス一覧</div></div>
-            <div class="header-menu-content"><img src="/img/recruitLogo.svg" alt="menu-logo" class="menu-logo"><div @click="routeEnter('')" class="menu-link">採用情報</div></div>
-            <div class="header-menu-content"><img src="/img/contactLogo.svg" alt="menu-logo" class="menu-logo"><div @click="routeEnter('')" class="menu-link">お問い合わせ</div></div>
+            <div class="header-menu-content"><img src="/img/newsLogo.svg" alt="menu-logo" class="menu-logo">
+                <div @click="routeEnter('news')" class="menu-link">お知らせ</div>
+            </div>
+            <div class="header-menu-content"><img src="/img/aboutLogo.svg" alt="menu-logo" class="menu-logo">
+                <div @click="routeEnter('about')" class="menu-link">愛宕会について</div>
+            </div>
+            <div class="header-menu-content"><img src="/img/serviceLogo.svg" alt="menu-logo" class="menu-logo">
+                <div @click="routeEnter('service')" class="menu-link">施設・サービス一覧</div>
+            </div>
+            <div class="header-menu-content"><img src="/img/recruitLogo.svg" alt="menu-logo" class="menu-logo">
+                <div @click="routeEnter('recruit')" class="menu-link">採用情報</div>
+            </div>
+            <div class="header-menu-content"><img src="/img/contactLogo.svg" alt="menu-logo" class="menu-logo">
+                <div @click="scrollToBottom" class="menu-link">お問い合わせ</div>
+            </div>
         </div>
     </header>
 </template>
@@ -41,6 +51,12 @@ export default {
         },
         routeEnter(link) {
             this.$router.push(`/${link}`)
+        },
+        scrollToBottom() {
+            window.scrollTo({
+                top: document.documentElement.scrollHeight,
+                behavior: 'smooth'
+            });
         }
     },
     mounted() {

@@ -21,7 +21,7 @@
         </SplideSlide>
     </Splide>
     <img src="/img/recruitLink-bottom.png" alt="background" class="recruitLink-bottom">
-    <nuxt-link to="/" class="link">
+    <nuxt-link to="/recruit" class="link">
         <img src="/img/arrow.svg" alt="background" class="arrow">
         <div class="copy-link-text">詳しくはこちら</div>
     </nuxt-link>
