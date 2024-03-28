@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="interview">
         <div class="select">
             <div class="title">
                 職員インタビュー
@@ -161,6 +161,11 @@
 </template>
 
 <script>
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { nextTick } from 'vue';
+gsap.registerPlugin(ScrollTrigger);
+
 export default {
     data() {
         return {
@@ -187,7 +192,25 @@ export default {
                 this.int3 = true
             }
         }
-    }
+    },
+    mounted() {
+        nextTick(() => {
+            ScrollTrigger.refresh(true);
+            setTimeout(() => {
+                gsap.from(".interview", {
+                    scrollTrigger: {
+                        trigger: ".interview",
+                        start: "top 80%",
+                        toggleActions: "play none none none",
+                    },
+                    opacity: 0,
+                    duration: 0.5,
+                    y: 50
+                });
+            }, 300);
+
+        });
+    },
 }
 </script>
 

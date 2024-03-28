@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="day">
         <div class="select">
             <div class="title">
                 職員の１日
@@ -87,6 +87,11 @@
 </template>
 
 <script>
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { nextTick } from 'vue';
+gsap.registerPlugin(ScrollTrigger);
+
 export default {
     data () {
         return {
@@ -123,7 +128,25 @@ export default {
                 this.night = true
             }
         }
-    }
+    },
+    mounted () {
+        nextTick(() => {
+            ScrollTrigger.refresh(true);
+            setTimeout(() => {
+                gsap.from(".day", {
+                    scrollTrigger: {
+                        trigger: ".day",
+                        start: "top 80%",
+                        toggleActions: "play none none none",
+                    },
+                    opacity: 0,
+                    duration: 0.5,
+                    y: 50
+                });
+            }, 300);
+
+        });
+    },
 }
 </script>
 
@@ -133,7 +156,7 @@ export default {
     justify-content: center;
     gap: 2%;
     font-size: 2vw;
-    margin-top: 5%;
+    margin-top: 8%;
     font-weight: 700;
     .selece-button-container {
         display: flex;
