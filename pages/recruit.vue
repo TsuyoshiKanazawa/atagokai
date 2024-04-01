@@ -13,10 +13,10 @@
                 自他の個性や事情を尊重し合いながら、<br>
                 互いに気持ちよく働ける 職場を目指した<br>
                 啓発活動やルール作りに取り組んでいます。
-                <nuxt-link to="/" class="link">
-                    <div class="copy-link-text">募集要項</div>
-                    <img src="/img/arrow.svg" alt="background" class="arrow">
-                </nuxt-link>
+            </div>
+            <div @click="scrollToCorporation" class="link">
+                <div class="copy-link-text">募集要項</div>
+                <img src="/img/arrow.svg" alt="background" class="arrow">
             </div>
         </div>
         <img src="/img/recruit-copy-bottom.png" alt="background" class="recruit-copy-bottom">
@@ -91,15 +91,14 @@
             </div>
 
         </div>
-        <recruitLink />
+        <service />
     </div>
 </template>
 
 <script setup>
-import { onMounted } from 'vue';
+import { onMounted, ref, nextTick } from 'vue';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { nextTick } from 'vue';
 gsap.registerPlugin(ScrollTrigger);
 
 onMounted(() => {
@@ -205,9 +204,14 @@ onMounted(() => {
         }, 300);
 
     });
-
 });
-
+const scrollToCorporation = () => {
+    const corporationElement = document.querySelector('.corporation');
+    if (corporationElement) {
+        const y = corporationElement.getBoundingClientRect().top + window.pageYOffset - 100; // 100pxはヘッダーなどのオフセット
+        window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+};
 useHead({
     title: '採用情報 | 社会福祉法人 愛宕会',
     meta: [
@@ -239,6 +243,7 @@ useHead({
     justify-content: center;
     gap: 5%;
     margin-top: 3%;
+    position: relative;
     .copy {
         font-size: 2.5vw;
         font-weight: 700;
@@ -250,13 +255,17 @@ useHead({
     .link {
         margin-right: 0;
         margin-left: auto;
-        position: relative;
-        z-index: 2;
+        position: absolute;
+        bottom: -40%;
+        right: 23%;
+        z-index: 10;
+        cursor: pointer;
     }
 }
+
 .recruit-copy-bottom {
     width: 100%;
-    margin-top: -10%;
+    margin-top: -7%;
     position: relative;
     z-index: 1;
 }
