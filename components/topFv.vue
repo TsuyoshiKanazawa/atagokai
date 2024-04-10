@@ -50,6 +50,23 @@ export default {
                 AutoScroll
             }
         }
+    },
+    mounted() {
+        this.updateScrollSpeedBasedOnWindowSize();
+        window.addEventListener('resize', this.updateScrollSpeedBasedOnWindowSize);
+    },
+    beforeDestroy() {
+        window.removeEventListener('resize', this.updateScrollSpeedBasedOnWindowSize);
+    },
+    methods: {
+        updateScrollSpeedBasedOnWindowSize() {
+            const windowWidth = window.innerWidth;
+            if(windowWidth >= 900) {
+                this.splideOpt.autoScroll.speed = 0.2;
+            } else {
+                this.splideOpt.autoScroll.speed = 0.5;
+            }
+        }
     }
 };
 </script>
@@ -59,11 +76,17 @@ export default {
     width: 100%;
     height: 50vw;
     overflow: hidden;
+    @media screen and (max-width: 900px) {
+        height: 150vw;
+    }
 
     .fv-container {
 
         .fvImage {
             width: 30vw;
+            @media screen and (max-width: 900px) {
+                width: 100vw;
+            }
         }
     }
 

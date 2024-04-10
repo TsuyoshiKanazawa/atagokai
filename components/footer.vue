@@ -53,22 +53,41 @@ footer {
         box-sizing: border-box;
         padding-top: 14%;
         padding-bottom: 10%;
+        @media screen and (max-width: 900px) {
+            height: 50vw;
+            padding-top: 15%;
+        }
         .contact-text {
             display: block;
             margin-top: 10%;
             margin: auto;
             width: 53vw;
+            @media screen and (max-width: 900px) {
+                width: 73vw;
+            }
         }
         .contact-tel {
             font-size: 2.5vw;
             display: block;
             margin-left: 23%;
             font-weight: 500;
+            @media screen and (max-width: 900px) {
+                font-size: 3.5vw;
+                margin-left: 15%;
+                font-weight: 700;
+                line-height: 1;
+            }
             .contact-fax {
-                font-size: 1.8vw;
+                font-size: 2vw;
+                @media screen and (max-width: 900px) {
+                    font-size: 2.3vw;
+                }
             }
             .contact-address {
                 font-size: 1.8vw;
+                @media screen and (max-width: 900px) {
+                    font-size: 2.2vw;
+                }
             }
         }
     }
@@ -77,19 +96,32 @@ footer {
         justify-content: space-between;
         padding: 0 10%;
         margin-top: -5%;
+
+        @media screen and (max-width: 900px) {
+            padding: 0 5%;
+        }
         .left {
             .logo {
                 width: 10vw;
+                @media screen and (max-width: 900px) {
+                    width: 15vw;
+                }
             }
             .address {
                 margin-top: 3%;
                 font-size: 1.5vw;
                 line-height: 200%;
                 font-weight: 600;
+                @media screen and (max-width: 900px) {
+                    font-size: 2.3vw;
+                }
             }
             .banner {
                 width: 35vw;
                 margin-top: 3%;
+                @media screen and (max-width: 900px) {
+                    width: 55vw;
+                }
             }
         }
         .right {
@@ -97,7 +129,11 @@ footer {
             ul {
                 list-style: none;
                 font-size: 1.5vw;
-                font-weight: 600;
+                font-weight: 500;
+                @media screen and (max-width: 900px) {
+                    font-size: 2.5vw;
+                    font-weight: 700;
+                }
                 .footer-menu {
                     margin-top: 10%;
                     &.grey {
@@ -135,6 +171,9 @@ footer {
         margin: 2%;
         font-size: 1.3vw;
         font-weight: 500;
+        @media screen and (max-width: 900px) {
+            font-size: 2vw;
+        }
     }
 }
 </style>

@@ -27,15 +27,23 @@
         }
         .title-text {
             font-size: 2.3vw;
-            font-weight: 600;
+            font-weight:500;
             margin-left: 1%;
             line-height: 10vw;
+
+            @media screen and (max-width: 900px) {
+                font-size: 3.5vw;
+                font-weight: 700;
+            }
         }
     }
     .service-link {
         display: flex;
         justify-content: flex-end;
         gap: 7%;
+        @media screen and (max-width: 900px) {
+            gap: 7%;
+        }
         .service-link-image {
             width: 40vw;
             position: relative;
@@ -43,11 +51,18 @@
         }
         .link {
             width: 30vw;
-            height: 3vw;
-            line-height: 3vw;
+            height: 5vw;
+            line-height:5vw;
             margin-right: 3%;
             margin-top: 12%;
             font-size: 2vw;
+            @media screen and (max-width: 900px) {
+                width: 42vw;
+                font-size: 2.7vw;
+                img {
+                    width: 5vw;
+                }
+            }
         }
     }
 }

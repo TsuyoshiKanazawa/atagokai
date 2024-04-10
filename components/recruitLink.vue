@@ -97,6 +97,12 @@ export default {
         .recruit-logo {
             width: 4vw;
         }
+        @media screen and (max-width: 900px) {
+            font-size: 3.5vw;
+            width: 25vw;
+            height: 7vw;
+            line-height: 7vw;
+        }
     }
     .recruitLink-images {
         position: absolute;
@@ -106,6 +112,10 @@ export default {
         z-index: -10;
         .recruitLink-image {
             width: 100vw;
+            
+            @media screen and (max-width: 900px) {
+                transform: translateX(2.5%) scale(1.05);
+            }
         }
     }
     .recruitLink-bottom {
@@ -122,6 +132,10 @@ export default {
         right: 3%;
         width: 11vw;
         text-align: end;
+        @media screen and (max-width: 900px) {
+            width: 50vw;
+            bottom: -20%;
+        }
         .arrow {
             display: block;
             margin: 0 0 0 auto;
