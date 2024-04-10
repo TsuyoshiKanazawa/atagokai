@@ -175,6 +175,9 @@ useHead({
 <style lang="scss" scoped>
 .about-top {
     position: relative;
+    @media screen and (max-width: 900px) {
+        padding-top: 13vw;
+    }
     .about-top-image {
         width: 100%;
     }
@@ -188,12 +191,18 @@ useHead({
         h1 {
             font-size: 4.5vw;
         }
+        @media screen and (max-width: 900px) {
+            top: 53%;
+        }
     }
 }
 .about-mv {
     margin: auto;
     margin-top: 3%;
     width: 60vw;
+    @media screen and (max-width: 900px) {
+        width: 90vw;
+    }
     .mission {
         display: flex;
         justify-content: flex-start;
@@ -207,16 +216,31 @@ useHead({
             line-height: 0.7;
             height: 2.3vw;
             width: 6vw !important;
+            @media screen and (max-width: 900px) {
+                font-size: 3.5vw;
+                width: 13vw !important;
+                height: 5vw;
+                padding: 1vw 2vw;
+            }
             span {
                 font-size: 0.8vw;
+                @media screen and (max-width: 900px) {
+                    font-size: 2vw;
+                }
             }
         }
         .text {
             text-align: center;
             font-size: 4vw;
-            font-weight: 400;
+            font-weight: 700;
             position: relative;
             line-height: 0.8;
+            letter-spacing: 0.08em;
+            @media screen and (max-width: 900px) {
+                font-size: 6vw;
+                margin-top: 3%;
+                font-weight: 500;
+            }
             span {
                 font-size: 1.5vw;
                 position: absolute;
@@ -225,6 +249,13 @@ useHead({
                 transform: translateX(-50%);
                 width: 50vw;
                 font-weight: 700;
+                letter-spacing: 0.05em;
+                @media screen and (max-width: 900px) {
+                    margin: 0;
+                    bottom: -100%;
+                    font-size: 2.7vw;
+                    width: 70vw;
+                }
             }
         }
     }
@@ -233,6 +264,9 @@ useHead({
         justify-content: flex-start;
         gap: 5%;
         margin-top: 10%;
+        @media screen and (max-width: 900px) {
+            gap: 3%;
+        }
         .title {
             border: 1px solid black;
             text-align: center;
@@ -243,8 +277,18 @@ useHead({
             height: 2.3vw;
             width: 6vw !important;
             margin-top: 3%;
+            @media screen and (max-width: 900px) {
+                font-size: 3.5vw;
+                width: 13vw !important;
+                height: 5vw;
+                padding: 1vw 2vw;
+            }
             span {
                 font-size: 0.8vw;
+        
+                @media screen and (max-width: 900px) {
+                    font-size: 2vw;
+                }
             }
         }
         .right {
@@ -253,8 +297,15 @@ useHead({
             font-weight: 400;
             position: relative;
             line-height: 0.8;
+            letter-spacing: 0.08em;
+            @media screen and (max-width: 900px) {
+                margin-top: 2%;
+            }
             .line {
                 width: 35vw;
+                @media screen and (max-width: 900px) {
+                    width: 60vw;
+                }
             }
             span {
                 font-size: 1.5vw;
@@ -277,6 +328,10 @@ useHead({
                 .text {
                     width: fit-content;
                 }
+                @media screen and (max-width: 900px) {
+                    font-size: 4.5vw;
+                    width: 92vw;
+                }
             }
             .bottom-text {
                 position: absolute;
@@ -286,6 +341,10 @@ useHead({
                 width: 35vw;
                 font-size: 1.3vw;
                 font-weight: 600;
+                @media screen and (max-width: 900px) {
+                    width: 80vw;
+                    font-size: 2.3vw;
+                }
             }
         }
     }
@@ -293,6 +352,9 @@ useHead({
 .corporation {
     margin-top: 9%;
     position: relative;
+    @media screen and (max-width: 900px) {
+        margin-top: 15%;
+    }
     .corporation-top-image {
         width: 100%;
         position: relative;
@@ -304,6 +366,10 @@ useHead({
         margin: -15% auto 1% 19%;
         position: relative;
         z-index: 1;
+        @media screen and (max-width: 900px) {
+            font-size: 3.5vw;
+            margin: -15% auto 1% 5%;
+        }
     }
     .table-container {
         position: relative;
@@ -327,6 +393,12 @@ useHead({
                 text-align: center;
                 font-weight: 700;
                 font-size: 1.3vw;
+                @media screen and (max-width: 900px) {
+                    width: 25vw;
+                    height: 8vw;
+                    line-height: 8vw;
+                    font-size: 2.5vw;
+                }
             }
             .text {
                 width: 45vw;
@@ -337,6 +409,13 @@ useHead({
                 font-size: 1.3vw;
                 padding: 0 8%;
                 box-sizing: border-box;
+                @media screen and (max-width: 900px) {
+                    width: 65vw;
+                    height: 8vw;
+                    line-height: 8vw;
+                    font-size: 2.5vw;
+                    
+                }
             }
             &:last-child {
                 .name {
@@ -352,14 +431,24 @@ useHead({
         font-size: 2vw;
         font-weight: 700;
         margin: 0 auto 1% 19%;
+        @media screen and (max-width: 900px) {
+            font-size: 3.5vw;
+            margin: 0 auto 1% 5%;
+        }
     }
     .certification-logo {
         display: flex;
         gap: 5%;
         margin-top: -2%;
         margin-left: 32%;
+        @media screen and (max-width: 900px) {
+            margin-left: 25%;
+        }
         img {
             width: 10vw;
+            @media screen and (max-width: 900px) {
+                width: 20vw;
+            }
         }
     }
 }
@@ -372,11 +461,18 @@ useHead({
         font-size: 2vw;
         font-weight: 700;
         margin: 0 auto 1% 19%;
+        @media screen and (max-width: 900px) {
+            font-size: 3.5vw;
+            margin: 0 auto 1% 5%;
+        }
     }
     .history-image {
         width: 65vw;
         display: block;
         margin: -10% auto 0;
+        @media screen and (max-width: 900px) {
+            width: 90vw;
+        }
     }
 }
 .link {
@@ -388,6 +484,10 @@ useHead({
     margin: auto;
     z-index: 1;
     position: relative;
+    @media screen and (max-width: 900px) {
+        width: 100%;
+        margin-bottom: 5%;
+    }
     a {
         background-color: #DAEEFA;
         border: 0.2vw solid #DAEEFA;
@@ -400,6 +500,10 @@ useHead({
         border-radius: 30px;
         margin-bottom: 3%;
         transition: 0.3s;
+        @media screen and (max-width: 900px) {
+            height: 8vw;
+            border-radius: 3vw;
+        }
         img {
             width: 2vw;
             position: absolute;
@@ -408,10 +512,16 @@ useHead({
             transform: translateY(-50%);
             border: 2px solid #DAEEFA;
             border-radius: 50%;
+            @media screen and (max-width: 900px) {
+                width: 5vw;
+            }
         }
         .link-text {
             margin: auto;
             font-size: 1.7vw;
+            @media screen and (max-width: 900px) {
+                font-size: 2.5vw;
+            }
         }
     }
     a:hover {
