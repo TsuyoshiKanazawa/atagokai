@@ -100,6 +100,9 @@ useHead({
 <style lang="scss" scoped>
 .service-top {
     position: relative;
+    @media screen and (max-width: 900px) {
+        padding-top: 13vw;
+    }
     .service-top-image {
         width: 100%;
     }
@@ -109,9 +112,12 @@ useHead({
         right: 10%;
         color: white;
         font-size: 3vw;
-        font-weight: 500;
+        font-weight: 600;
         h1 {
             font-size: 4.5vw;
+        }
+        @media screen and (max-width: 900px) {
+            top: 53%;
         }
     }
 }
@@ -129,9 +135,16 @@ useHead({
         padding-bottom: 3%;
         .left {
             width: 30vw;
+            @media screen and (max-width: 900px) {
+                width: 50vw;
+            }
             .service-image {
                 border-radius: 50px;
                 width: 30vw;
+                @media screen and (max-width: 900px) {
+                    width: 50vw;
+                    border-radius: 30px;
+                }
             }
             .tag-container {
                 display: flex;
@@ -151,15 +164,27 @@ useHead({
                     position: relative;
                     height: 1.3vw;
                     line-height: 1.3vw;
+                    @media screen and (max-width: 900px) {
+                        font-size: 1.4vw;
+                        height: 2.5vw;
+                        line-height: 2.5vw;
+                        border-radius: 3px;
+                    }
                     .arrow {
                         position: absolute;
                         top: 0;
                         right: -2%;
+                        @media screen and (max-width: 900px) {
+                            right: 2%;
+                        }
                     }
                 }
             }
         }
         .right {
+            @media screen and (max-width: 900px) {
+                width: 40vw;
+            }
             .facility-detail {
                 width: 101%;
                 margin-bottom: 5%;
@@ -170,20 +195,37 @@ useHead({
                     text-align: center;
                     color: white;
                     border-radius: 8px;
+                    @media screen and (max-width: 900px) {
+                        width: 15vw;
+                        font-size: 1.7vw;
+                        border-radius: 4px;
+                    }
                 }
                 .title {
                     font-size: 2vw;
                     font-weight: 600;
+                    @media screen and (max-width: 900px) {
+                        font-size: 2.8vw;
+                        font-weight: 700;
+                    }
                 }
                 hr {
                     border: none;
                     border-top: 0.7vw dotted #59C4F1;
+                    @media screen and (max-width: 900px) {
+                        margin-top: 0;
+                        margin-bottom: 1vw;
+                    }
                 }
                 .content {
                     font-size: 1vw;
                     font-weight: 600;
                     padding: 0 1%;
                     line-height: 1.1;
+                    @media screen and (max-width: 900px) {
+                        font-weight: 700;
+                        font-size: 1.8vw;
+                    }
                 }
                 &.day-service {
                     .service {
@@ -194,6 +236,9 @@ useHead({
                     }
                 }
             }
+        }
+        &:last-child {
+            border-bottom: none;
         }
     }
 }

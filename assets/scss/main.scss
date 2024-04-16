@@ -67,6 +67,14 @@ a {
     }
 }
 
+.sp-only {
+    display: none;
+
+    @media screen and (max-width: 900px) {
+        display: block;
+    }
+}
+
 main {
     position: relative;
     z-index: 3;

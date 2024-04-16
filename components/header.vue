@@ -29,19 +29,19 @@
         <div class="header-menu-sp" v-show="menuOpen" :class="{ 'menu-visible': menuOpen }">
             <div class="header-menu-content">
                 <img src="/img/newsLogo.svg" alt="menu-logo" class="menu-logo">
-                <div @click="routeEnter('news')" class="menu-link">お知らせ</div>
+                <div @click="routeEnterSp('news')" class="menu-link">お知らせ</div>
             </div>
             <div class="header-menu-content">
                 <img src="/img/aboutLogo.svg" alt="menu-logo" class="menu-logo">
-                <div @click="routeEnter('about')" class="menu-link">愛宕会について</div>
+                <div @click="routeEnterSp('about')" class="menu-link">愛宕会について</div>
             </div>
             <div class="header-menu-content">
                 <img src="/img/serviceLogo.svg" alt="menu-logo" class="menu-logo" style="width: 5vw;">
-                <div @click="routeEnter('service')" class="menu-link" style="line-height: 9vw;">施設・サービス一覧</div>
+                <div @click="routeEnterSp('service')" class="menu-link" style="line-height: 9vw;">施設・サービス一覧</div>
             </div>
             <div class="header-menu-content">
                 <img src="/img/recruitLogo.svg" alt="menu-logo" class="menu-logo">
-                <div @click="routeEnter('recruit')" class="menu-link">採用情報</div>
+                <div @click="routeEnterSp('recruit')" class="menu-link">採用情報</div>
             </div>
             <div class="header-menu-content">
                 <img src="/img/contactLogo.svg" alt="menu-logo" class="menu-logo">
@@ -80,6 +80,9 @@ export default {
             }
         },
         routeEnter(link) {
+            this.$router.push(`/${link}`)
+        },
+        routeEnterSp(link) {
             this.$router.push(`/${link}`)
             this.menuOpen = !this.menuOpen;
         },

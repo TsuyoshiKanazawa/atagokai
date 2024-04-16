@@ -34,7 +34,7 @@
                 </div>
             </div>
             <div class="section">
-                <h1>3.個人情報の開示・訂正・更新・利用停止・削除、第三者提供の停止等への対応</h1>
+                <h1>3.個人情報の開示・訂正・更新・利用停止・削除、<br class="sp-only">第三者提供の停止等への対応</h1>
                 <div>
                     法人は、本人が自己の個人情報について、開示・訂正・更新・利用停止・削除、第三者提供の<br>
                     停止等の申し出がある場合には、速やかに対応します。
@@ -53,6 +53,9 @@
 <style lang="scss" scoped>
 .privacy-top {
     position: relative;
+    @media screen and (max-width: 900px) {
+        padding-top: 13vw;
+    }
     .privacy-top-image {
         width: 100%;
     }
@@ -63,30 +66,50 @@
         color: white;
         font-size: 4.5vw;
         font-weight: 500;
-
+        @media screen and (max-width: 900px) {
+            top: 55%;
+        }
     }
 }
 .privacy-content {
-    width: 53vw;
+    width: 54vw;
     margin: auto;
     margin-top: -3%;
+    @media screen and (max-width: 900px) {
+        width: 90vw;
+    }
     .title {
         font-size: 1.5vw;
         font-weight: 600;
+        @media screen and (max-width: 900px) {
+            font-size: 4vw;
+            font-weight: 700;
+        }
     }
     .section {
         margin-bottom: 5%;
         font-weight: 600;
         font-size: 1vw;
         line-height: 1.7;
+        @media screen and (max-width: 900px) {
+            font-size: 2vw;
+            font-weight: 700;
+        }
         h1 {
             font-size: 1.5vw;
+            @media screen and (max-width: 900px) {
+                font-size: 2.8vw;
+            }
         }
     }
     .personal-leader {
         font-size: 1.3vw;
         font-weight: 600;
         line-height: 1.7;
+        @media screen and (max-width: 900px) {
+            font-size: 2.8vw;
+            font-weight: 700;
+        }
     }
 }
 </style>
