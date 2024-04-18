@@ -115,7 +115,7 @@ onMounted(() => {
                     toggleActions: "play none none none",
                 },
                 opacity: 0,
-                duration: 0.5,
+                duration: 1,
                 y: 50
             });
             gsap.from(".vision", {
@@ -125,7 +125,7 @@ onMounted(() => {
                     toggleActions: "play none none none",
                 },
                 opacity: 0,
-                duration: 0.5,
+                duration: 1,
                 y: 50
             });
             gsap.from(".table-container", {
@@ -135,7 +135,7 @@ onMounted(() => {
                     toggleActions: "play none none none",
                 },
                 opacity: 0,
-                duration: 0.5,
+                duration: 1,
                 y: 50
             });
             gsap.from(".certification-logo", {
@@ -145,7 +145,7 @@ onMounted(() => {
                     toggleActions: "play none none none"
                 },
                 opacity: 0,
-                duration: 0.5,
+                duration: 1,
                 y: 50
             });
             gsap.from(".history-image", {
@@ -155,7 +155,7 @@ onMounted(() => {
                     toggleActions: "play none none none"
                 },
                 opacity: 0,
-                duration: 0.5,
+                duration: 1,
                 y: 50
             });
         }, 300);
@@ -302,7 +302,7 @@ useHead({
                 margin-top: 2%;
             }
             .line {
-                width: 35vw;
+                width: 43vw;
                 @media screen and (max-width: 900px) {
                     width: 60vw;
                 }
@@ -322,7 +322,7 @@ useHead({
                 position: absolute;
                 bottom: -50%;
                 left: -30%;
-                width: 58vw;
+                width: 70vw;
                 font-size: 3.3vw;
                 font-weight: 600;
                 .text {
@@ -335,15 +335,16 @@ useHead({
             }
             .bottom-text {
                 position: absolute;
-                bottom: -100%;
+                bottom: -80%;
                 left: 50%;
                 transform: translateX(-50%);
-                width: 35vw;
+                width: 43vw;
                 font-size: 1.3vw;
                 font-weight: 600;
                 @media screen and (max-width: 900px) {
                     width: 80vw;
                     font-size: 2.3vw;
+                    bottom: -100%;
                 }
             }
         }

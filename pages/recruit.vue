@@ -123,7 +123,7 @@ onMounted(() => {
                     toggleActions: "play none none none",
                 },
                 opacity: 0,
-                duration: 0.5,
+                duration: 1,
                 y: 50
             });
             gsap.from(".content", {
@@ -133,7 +133,7 @@ onMounted(() => {
                     toggleActions: "play none none none",
                 },
                 opacity: 0,
-                duration: 0.5,
+                duration: 1,
                 delay: 0.5,
                 y: 50
             });
@@ -186,7 +186,7 @@ onMounted(() => {
                     toggleActions: "play none none none",
                 },
                 opacity: 0,
-                duration: 0.5,
+                duration: 1,
                 delay: 0.3,
                 y: 50
             });

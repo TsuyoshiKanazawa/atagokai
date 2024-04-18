@@ -58,7 +58,7 @@ onMounted(async () => {
                     toggleActions: "play none none none",
                 },
                 opacity: 0,
-                duration: 0.5,
+                duration: 1,
                 y: 30
             });
         });
