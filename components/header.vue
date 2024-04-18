@@ -45,7 +45,7 @@
             </div>
             <div class="header-menu-content">
                 <img src="/img/contactLogo.svg" alt="menu-logo" class="menu-logo">
-                <div @click="scrollToBottom" class="menu-link">お問い合わせ</div>
+                <div @click="scrollToBottomSp" class="menu-link">お問い合わせ</div>
             </div>
         </div>
     </header>
@@ -91,6 +91,13 @@ export default {
                 top: document.documentElement.scrollHeight,
                 behavior: 'smooth'
             });
+        },
+        scrollToBottomSp() {
+            window.scrollTo({
+                top: document.documentElement.scrollHeight,
+                behavior: 'smooth'
+            });
+            this.menuOpen = !this.menuOpen;
         },
         toggleMenu() {
             this.menuOpen = !this.menuOpen;

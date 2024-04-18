@@ -8,7 +8,7 @@
             <div class="copy">向き合うから<br>本気になれる。</div>
             <div class="content">
                 愛宕会では、職員の自主性を重視し、<br>
-                やりがいと誇りをもって働ける職場を目指しています。<br>
+                やりがいと誇りをもって働ける<br class="sp-only">職場を目指しています。<br>
                 職員の 気づきや提案による職場改善を行い、<br>
                 自他の個性や事情を尊重し合いながら、<br>
                 互いに気持ちよく働ける 職場を目指した<br>
@@ -36,6 +36,17 @@
                     <br>
                     ③職員と利用者を何よりも大切に職員からの意見や要望に耳を傾け、<br>
                     　利用者を大切にする。
+                </div>
+                <div class="features-content sp">
+                    ①自然と人が近い隠岐の暮らし自然豊かで<br>
+                    　人との距離が近い、癒しが溢れる<br>
+                    　隠岐の暮らし。<br>
+                    <br>
+                    ②女性の活躍を応援する職場子育てに<br>
+                    　関する多様な制度で、女性の活躍を応援。<br>
+                    <br>
+                    ③職員と利用者を何よりも大切に職員からの<br>
+                    　意見や要望に耳を傾け、利用者を大切にする。
                 </div>
                 <img src="/img/features-pic3.jpg" alt="background" class="features-pic3">
                 <img src="/img/features-pic4.jpg" alt="background" class="features-pic4">
@@ -223,7 +234,9 @@ useHead({
 <style lang="scss" scoped>
 .recruit-top {
     position: relative;
-
+    @media screen and (max-width: 900px) {
+        padding-top: 13vw;
+    }
     .recruit-top-image {
         width: 100%;
     }
@@ -235,7 +248,9 @@ useHead({
         color: white;
         font-size: 4.5vw;
         font-weight: 500;
-
+        @media screen and (max-width: 900px) {
+            top: 58%;
+        }
     }
 }
 .recruit-copy {
@@ -247,10 +262,16 @@ useHead({
     .copy {
         font-size: 2.5vw;
         font-weight: 700;
+        @media screen and (max-width: 900px) {
+            font-size: 5vw;
+        }
     }
     .content {
         font-size: 1.2vw;
         font-weight: 700;
+        @media screen and (max-width: 900px) {
+            font-size: 2.5vw;
+        }
     }
     .link {
         margin-right: 0;
@@ -260,6 +281,16 @@ useHead({
         right: 23%;
         z-index: 10;
         cursor: pointer;
+        @media screen and (max-width: 900px) {
+            bottom: -60%;
+            right: 5%;
+            font-size: 2.5vw;
+            line-height: 4vw;
+            width: 15vw;
+            img {
+                width: 4vw;
+            }
+        }
     }
 }
 
@@ -268,6 +299,9 @@ useHead({
     margin-top: -7%;
     position: relative;
     z-index: 1;
+    @media screen and (max-width: 900px) {
+        margin-top: -2%;
+    }
 }
 .recruit-features {
     .features-pic-container {
@@ -275,14 +309,24 @@ useHead({
         width: 40vw;
         position: relative;
         z-index: 0;
+        @media screen and (max-width: 900px) {
+            width: 70vw;
+        }
         .features-pic1 {
             width: 13vw;
             margin-top: -15%;
             margin-right: 18%;
+            @media screen and (max-width: 900px) {
+                width: 26vw;
+                margin-top: -20%;
+            }
         }
         .features-pic2 {
             width: 11vw;
             margin-bottom: -10%;
+            @media screen and (max-width: 900px) {
+                width: 18vw;
+            }
         }
     }
     .features-text {
@@ -292,11 +336,31 @@ useHead({
         margin-top: 6%;
         font-weight: 700;
         position: relative;
+        @media screen and (max-width: 900px) {
+            margin-top: 10%;
+            gap: 5%;
+        }
         .features-title {
             font-size: 2vw;
+            @media screen and (max-width: 900px) {
+                font-size: 4vw;
+            }
         }
         .features-content {
             font-size: 1vw;
+            &.sp {
+                display: none;
+            }
+            @media screen and (max-width: 900px) {
+                font-size: 2.3vw;
+                width: 51%;
+                display: none;
+                line-height: 1.6;
+                &.sp {
+                    display: block;
+                }
+            }
+
         }
         .features-pic3 {
             width: 13vw;
@@ -304,6 +368,11 @@ useHead({
             bottom: -50%;
             left: 26%;
             z-index: 0;
+            @media screen and (max-width: 900px) {
+                width: 23vw;
+                bottom: -10%;
+                left: 7%;
+            }
         }
         .features-pic4 {
             width: 11vw;
@@ -311,6 +380,9 @@ useHead({
             bottom: -90%;
             right: 29%;
             z-index: 0;
+            @media screen and (max-width: 900px) {
+                width: 23vw;
+            }
         }
     }
     .features-bottom {
@@ -318,22 +390,37 @@ useHead({
         margin-top: -9%;
         position: relative;
         z-index: 1;
+        @media screen and (max-width: 900px) {
+            margin-top: 5%;
+        }
     }
 }
 .day-bottom {
     width: 100%;
     margin-top: -6%;
+    @media screen and (max-width: 900px) {
+
+    }
 }
 .benefits-top {
     width: 100%;
     margin-top: -5%;
+    @media screen and (max-width: 900px) {
+        margin-top: 0%;
+    }
 }
 .benefits {
     width: 49vw;
     margin: auto;
     font-weight: 700;
+    @media screen and (max-width: 900px) {
+        width: 90vw;
+    }
     .title {
         font-size: 1.5vw;
+        @media screen and (max-width: 900px) {
+            font-size: 3.5vw;
+        }
     }
     .content {
         border: 3px solid #7ECEF4;
@@ -342,11 +429,18 @@ useHead({
         font-size: 1.15vw;
         line-height: 1.7;
         margin-top: 1%;
+        @media screen and (max-width: 900px) {
+            font-size: 2.1vw;
+            border-radius: 10px;
+        }
     }
 }
 .corporation {
     margin-top: 3%;
     position: relative;
+    @media screen and (max-width: 900px) {
+        margin-bottom: 5%;
+    }
 
     .corporation-title {
         font-size: 1.5vw;
@@ -354,6 +448,10 @@ useHead({
         margin: 0 auto 1% 25%;
         position: relative;
         z-index: 1;
+        @media screen and (max-width: 900px) {
+            font-size: 3.5vw;
+            margin: 0 auto 1% 5%;
+        }
     }
 
     .table-container {
@@ -367,7 +465,10 @@ useHead({
         border-radius: 30px;
         margin: auto;
         overflow: hidden;
-
+        @media screen and (max-width: 900px) {
+            border-radius: 10px;
+            border: 0.5vw solid #7ECEF4;
+        }
         .column {
             display: flex;
 
@@ -380,6 +481,13 @@ useHead({
                 text-align: center;
                 font-weight: 700;
                 font-size: 1.1vw;
+                @media screen and (max-width: 900px) {
+                    width: 24vw;
+                    height: 7vw;
+                    line-height: 7vw;
+                    font-size: 2.5vw;
+                    border-bottom: 0.5vw solid white;
+                }
             }
 
             .text {
@@ -391,6 +499,12 @@ useHead({
                 font-size: 1.1vw;
                 padding: 0 8%;
                 box-sizing: border-box;
+                @media screen and (max-width: 900px) {
+                    width: 65vw;
+                    font-size: 2.5vw;
+                    height: 7vw;
+                    line-height: 7vw;
+                }
             }
 
             &:last-child {

@@ -66,6 +66,13 @@ a {
         }
     }
 }
+.pc-only {
+    display: block;
+
+    @media screen and (max-width: 900px) {
+        display: none;
+    }
+}
 
 .sp-only {
     display: none;

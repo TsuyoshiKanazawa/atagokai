@@ -175,12 +175,6 @@ function formatContent(content) {
 
 
 <style lang="scss" scoped>
-.sp-only {
-  display: none;
-  @media screen and (max-width: 900px) {
-    display: block;
-  }
-}
 .container {
   width: 100%;
   margin: auto;

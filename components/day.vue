@@ -158,10 +158,17 @@ export default {
     font-size: 2vw;
     margin-top: 8%;
     font-weight: 700;
+    @media screen and (max-width: 900px) {
+        font-size: 4vw;
+        margin-top: 13%;
+    }
     .selece-button-container {
         display: flex;
         gap: 5%;
         width: 40vw;
+        @media screen and (max-width: 900px) {
+            width: 60vw;
+        }
         .selece-button {
             width: 6vw;
             text-align: center;
@@ -169,6 +176,10 @@ export default {
             border-radius: 15px;
             cursor: pointer;
             transition: 0.2s;
+            @media screen and (max-width: 900px) {
+                width: 12vw;
+                border-radius: 10px;
+            }
             &.active {
                 background-color: $green;
                 color: white;
@@ -187,11 +198,21 @@ export default {
     border-left: 4px solid $green;
     padding: 2% 0 2% 2%;
     font-weight: 700;
+    @media screen and (max-width: 900px) {
+        width: 40vw;
+        padding: 2% 0 2% 3%;
+        margin-left: 37%;
+    }
     .time {
         font-size: 1.5vw;
         width: 60%;
         border-bottom: 4px dotted $green;
         position: relative;
+        @media screen and (max-width: 900px) {
+            font-size: 3.5vw;
+            width: 70%;
+            border-bottom: 2px dotted $green;
+        }
         &::after {
             content: "";
             background-color: $green;
@@ -201,6 +222,12 @@ export default {
             position: absolute;
             top: 0;
             left: -26%;
+            @media screen and (max-width: 900px) {
+                width: 3.5vw;
+                height: 3.5vw;
+                top: 15%;
+                left: -19%;
+            }
         }
     }
     .action {
@@ -208,6 +235,9 @@ export default {
         line-height: 2;
         font-size: 1.3vw;
         width: auto;
+        @media screen and (max-width: 900px) {
+            font-size: 2.3vw;
+        }
     }
 }
 </style>

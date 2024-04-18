@@ -221,6 +221,9 @@ export default {
         text-align: center;
         font-size: 2vw;
         margin-bottom: 2%;
+        @media screen and (max-width: 900px) {
+            font-size: 3.5vw;
+        }
     }
     .select-button-container {
         display: flex;
@@ -235,11 +238,18 @@ export default {
             opacity: 0.3;
             transition: 0.2s;
             cursor: pointer;
+            @media screen and (max-width: 900px) {
+                width: 28vw;
+                padding: 3%;
+            }
             .int-pic {
                 width: 12vw;
                 display: block;
                 margin: auto;
                 pointer-events: none;
+                @media screen and (max-width: 900px) {
+                    width: 20vw;
+                }
             }
             .comment {
                 font-size: 1vw;
@@ -248,11 +258,22 @@ export default {
                 margin-top: 4%;
                 padding-bottom: 2%;
                 border-bottom: 5px dotted $green;
+                @media screen and (max-width: 900px) {
+                    font-size: 1.8vw;
+                    border-bottom: 2px dotted $green;
+                }
             }
             .name {
                 font-size: 1vw;
                 text-align: center;
                 margin: 5% 0 6%;
+                @media screen and (max-width: 900px) {
+                    font-size: 2vw;
+                    margin: 5% 0 0;
+                    span {
+                        font-size: 1.5vw;
+                    }
+                }
             }
             &.active {
                 opacity: 1;
@@ -267,6 +288,9 @@ export default {
     width: 49vw;
     margin: auto;
     margin-top: 4%;
+    @media screen and (max-width: 900px) {
+        width: 87vw;
+    }
     .section {
         font-weight: 700;
         .title {
@@ -274,6 +298,10 @@ export default {
             padding-bottom: 1%;
             border-bottom: 8px dotted $green;
             margin-bottom: 2%;
+            @media screen and (max-width: 900px) {
+                font-size: 3vw;
+                border-bottom: 3px dotted $green;
+            }
         }
         .content {
             font-size: 1.1vw;
@@ -281,6 +309,9 @@ export default {
             display: flex;
             gap: 2%;
             line-height: 1.8;
+            @media screen and (max-width: 900px) {
+                font-size: 1.9vw;
+            }
             .int-cont1 {
                 width: 40%;
                 height: 100%;
