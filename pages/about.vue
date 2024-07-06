@@ -16,7 +16,6 @@
             <div class="vision">
                 <div class="title">vision<br><span>ビジョン</span></div>
                 <div class="right">
-                    <img src="/img/vision-line.svg" alt="line" class="line">
                     <div class="texts">
                         <div class="text">One person</div>
                         <div class="text">One action</div>
@@ -78,15 +77,18 @@
                 <div class="link-text">行動計画</div>
                 <img src="/img/about-link-arrow.svg" alt="background" class="link-arrow">
             </a>
-            <a  href="/" target="_blank">
+            <a href="https://www.wam.go.jp/wamnet/zaihyoukaiji/pub/PUB0201000E00.do?_FORMID=PUB0219000&vo_headVO_corporationId=1632112172"
+                target="_blank">
                 <div class="link-text">定款・決算書等</div>
                 <img src="/img/about-link-arrow.svg" alt="background" class="link-arrow">
             </a>
-            <a href="/" target="_blank">
+            <a href="https://atagokai01.assets.newt.so/v1/287d0f70-fbec-4329-8fa9-5a3e9c7a5219/r5syogu.pdf"
+                target="_blank">
                 <div class="link-text">処遇改善計画書</div>
                 <img src="/img/about-link-arrow.svg" alt="background" class="link-arrow">
             </a>
-            <a href="/" target="_blank">
+            <a href="https://atagokai01.assets.newt.so/v1/8f727202-658d-4b48-ae6a-c89db12cf669/r5kouhou.pdf"
+                target="_blank">
                 <div class="link-text">広報</div>
                 <img src="/img/about-link-arrow.svg" alt="background" class="link-arrow">
             </a>
@@ -204,9 +206,6 @@ useHead({
         width: 90vw;
     }
     .mission {
-        display: flex;
-        justify-content: flex-start;
-        gap: 10%;
         .title {
             border: 1px solid black;
             text-align: center;
@@ -216,6 +215,7 @@ useHead({
             line-height: 0.7;
             height: 2.3vw;
             width: 6vw !important;
+            margin: auto;
             @media screen and (max-width: 900px) {
                 font-size: 3.5vw;
                 width: 13vw !important;
@@ -236,9 +236,9 @@ useHead({
             position: relative;
             line-height: 0.8;
             letter-spacing: 0.08em;
+            margin-top: 3%;
             @media screen and (max-width: 900px) {
                 font-size: 6vw;
-                margin-top: 3%;
                 font-weight: 500;
             }
             span {
@@ -260,13 +260,7 @@ useHead({
         }
     }
     .vision {
-        display: flex;
-        justify-content: flex-start;
-        gap: 5%;
         margin-top: 10%;
-        @media screen and (max-width: 900px) {
-            gap: 3%;
-        }
         .title {
             border: 1px solid black;
             text-align: center;
@@ -276,7 +270,7 @@ useHead({
             line-height: 0.7;
             height: 2.3vw;
             width: 6vw !important;
-            margin-top: 3%;
+            margin: auto;
             @media screen and (max-width: 900px) {
                 font-size: 3.5vw;
                 width: 13vw !important;
@@ -298,6 +292,7 @@ useHead({
             position: relative;
             line-height: 0.8;
             letter-spacing: 0.08em;
+            margin: auto;
             @media screen and (max-width: 900px) {
                 margin-top: 2%;
             }
@@ -317,25 +312,21 @@ useHead({
                 font-weight: 700;
             }
             .texts {
-                display: flex;
-                justify-content: space-between;
-                position: absolute;
-                bottom: -50%;
-                left: -30%;
-                width: 70vw;
+                width: fit-content;
                 font-size: 3.3vw;
                 font-weight: 600;
+                margin: auto;
                 .text {
                     width: fit-content;
+                    margin-top: 10%;
                 }
                 @media screen and (max-width: 900px) {
                     font-size: 4.5vw;
-                    width: 92vw;
                 }
             }
             .bottom-text {
                 position: absolute;
-                bottom: -80%;
+                bottom: -35%;
                 left: 50%;
                 transform: translateX(-50%);
                 width: 43vw;
@@ -344,7 +335,6 @@ useHead({
                 @media screen and (max-width: 900px) {
                     width: 80vw;
                     font-size: 2.3vw;
-                    bottom: -100%;
                 }
             }
         }

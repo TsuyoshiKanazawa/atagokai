@@ -13,10 +13,10 @@
                     <img v-if="article.image" :src="article.image.src" alt="サービス画像" class="service-image">
                     <img v-else src="/img/noImage.jpg" alt="サービス画像" class="service-image">
                     <div class="tag-container">
-                        <div v-for="tag in article.tag" :key="tag" class="tag">
-                            <div>{{ tag }}</div>
+                        <a v-for="tags in article.tags" :key="tags" class="tag" :href="tags.data.tag_link" target="_blank">
+                            <div>{{ tags.data.tag_name }}</div>
                             <div class="arrow">→</div>
-                        </div>
+                        </a>
                     </div>
                 </div>
                 <div class="right">
@@ -29,7 +29,7 @@
                     </div>
                 </div>
             </div>
-            
+
         </div>
         <recruitLink />
     </div>
@@ -45,7 +45,7 @@ import { nextTick } from 'vue';
 
 gsap.registerPlugin(ScrollTrigger);
 const { data: articles, refresh } = await useAsyncData('articles', fetchArticles);
-
+console.log(articles)
 onMounted(async () => {
     await refresh();
     nextTick(() => {
@@ -72,10 +72,10 @@ async function fetchArticles() {
         appUid: 'cpSite',
         modelUid: 'service',
         query: {
-            select: ['title', 'image', 'tag', 'facility']
+            select: ['title', 'image', 'tags', 'facility']
         }
     });
-    console.log(response)
+    
     return response;
 }
 
