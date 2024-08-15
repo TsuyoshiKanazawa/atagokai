@@ -5,83 +5,69 @@
                 職員の１日
             </div>
             <div class="selece-button-container">
-                <div class="selece-button" :class="{ 'active': early }" @click="daySelect('early')">早番</div>
-                <div class="selece-button" :class="{ 'active': noon }" @click="daySelect('noon')">日勤</div>
-                <div class="selece-button" :class="{ 'active': slow }" @click="daySelect('slow')">遅番</div>
-                <div class="selece-button" :class="{ 'active': night }" @click="daySelect('night')">夜勤</div>
+                <div class="selece-button" :class="{ 'active': early }" @click="daySelect('early')">なごみ苑</div>
+                <div class="selece-button" :class="{ 'active': noon }" @click="daySelect('noon')">清松園</div>
             </div>
         </div>
         <div v-if="early" class="day-container">
-            <div class="time">AM 7:00　始業</div>
+            <div class="time">AM 8:40</div>
             <div class="action">
-                朝食介助<br>
-                排泄介助<br>
-                朝のミーティング<br>
-                入浴介助
+                透析送迎
             </div>
-            <div class="time">AM 11:00　休憩</div>
+            <div class="time">AM 9:30</div>
             <div class="action">
-                昼食介助<br>
+                朝の申し送り<br>
+                受診者送迎<br>
                 排泄介助<br>
-                コール対応<br>
-                入退所業務<br>
-                記録・退勤
+                コール対応
             </div>
-            <div class="time">PM 16:00　終業</div>
+            <div class="time">AM 10:00</div>
+            <div class="action">
+                バイタルチェック
+            </div>
+            <div class="time">AM 11:00</div>
+            <div class="action">
+                利用者連れ出し
+            </div>
+            <div class="time">AM 11:30</div>
+            <div class="action">
+                昼食
+            </div>
+            <div class="time">PM 12:00</div>
+            <div class="action">
+                胃ろう対応
+            </div>
+            <div class="time">PM 13:30</div>
+            <div class="action">
+                職員休憩
+            </div>
+            <div class="time">PM 14:30</div>
+            <div class="action">
+                利用者連れ出し<br>
+                昼間食
+            </div>
+            <div class="time">PM 13:30</div>
+            <div class="action">
+                レク・体操
+            </div>
         </div>
         <div v-if="noon" class="day-container">
-            <div class="time">AM 9:00　始業</div>
+            <div class="time">AM 10:00</div>
             <div class="action">
-                朝食介助<br>
-                排泄介助<br>
-                朝のミーティング<br>
-                入浴介助
+                朝の体操
             </div>
-            <div class="time">PM 12:00　休憩</div>
+            <div class="time">AM 10:30</div>
             <div class="action">
-                昼食介助<br>
-                排泄介助<br>
-                コール対応<br>
-                入退所業務<br>
-                記録・退勤
+                利用者連れ出し
             </div>
-            <div class="time">PM 18:00　終業</div>
-        </div>
-        <div v-if="slow" class="day-container">
-            <div class="time">PM 12:00　始業</div>
+            <div class="time">AM 11:30</div>
             <div class="action">
-                朝食介助<br>
-                排泄介助<br>
-                朝のミーティング<br>
-                入浴介助
+                昼食
             </div>
-            <div class="time">PM 15:00　休憩</div>
+            <div class="time">PM 13:30</div>
             <div class="action">
-                昼食介助<br>
-                排泄介助<br>
-                コール対応<br>
-                入退所業務<br>
-                記録・退勤
+                職員休憩
             </div>
-            <div class="time">PM 20:00　終業</div>
-        </div>
-        <div v-if="night" class="day-container">
-            <div class="time">PM 17:00　始業</div>
-            <div class="action">
-                朝食介助<br>
-                排泄介助<br>
-                朝のミーティング<br>
-                入浴介助
-            </div>
-            <div class="time">PM 22:00　休憩</div>
-            <div class="action">
-                昼食介助<br>
-                排泄介助<br>
-                コール対応<br>
-                入退所業務<br>
-                記録・退勤
-            </div>
-            <div class="time">AM 9:00　終業</div>
         </div>
     </div>
 </template>
@@ -170,14 +156,14 @@ export default {
             width: 60vw;
         }
         .selece-button {
-            width: 6vw;
+            width: 10vw;
             text-align: center;
             border: 2px solid $green;
             border-radius: 15px;
             cursor: pointer;
             transition: 0.2s;
             @media screen and (max-width: 900px) {
-                width: 12vw;
+                width: 20vw;
                 border-radius: 10px;
             }
             &.active {
@@ -234,7 +220,7 @@ export default {
         padding: 5%;
         line-height: 2;
         font-size: 1.3vw;
-        width: auto;
+        width: 60%;
         @media screen and (max-width: 900px) {
             font-size: 2.3vw;
         }
