@@ -8,7 +8,7 @@
           <div class="copy-text-Lerge">ともに、<br>未来へ。</div>
           <div class="copy-text-Small">
             島根半島の北約80kmの日本海に、<br class="sp-only">180もの島々からなる隠岐諸島、<br>
-            その中でも一番大きな島、隠岐の島。<br>
+            その中でも一番大きな島、島後。<br>
             国の特別保護区を含む国立公園などを有する、<br>
             風光明媚でとても美しいところです。<br>
             <br>

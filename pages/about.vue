@@ -73,7 +73,7 @@
             <img src="/img/history.png" alt="background" class="history-image">
         </div>
         <div class="link">
-            <a href="/" target="_blank">
+            <a href="https://atagokai01.assets.newt.so/v1/e16e3d20-bb3c-43ac-a311-6a132ce391a2/%E4%B8%80%E8%88%AC%E4%BA%8B%E6%A5%AD%E4%B8%BB%E8%A1%8C%E5%8B%95%E8%A8%88%E7%94%BB.pdf" target="_blank">
                 <div class="link-text">行動計画</div>
                 <img src="/img/about-link-arrow.svg" alt="background" class="link-arrow">
             </a>
@@ -82,7 +82,7 @@
                 <div class="link-text">定款・決算書等</div>
                 <img src="/img/about-link-arrow.svg" alt="background" class="link-arrow">
             </a>
-            <a href="https://atagokai01.assets.newt.so/v1/287d0f70-fbec-4329-8fa9-5a3e9c7a5219/r5syogu.pdf"
+            <a href="https://atagokai01.assets.newt.so/v1/93a1c2c2-5be5-49ac-9a4d-fcedb4c3d411/%E5%87%A6%E9%81%87%E6%94%B9%E5%96%84%E8%A8%88%E7%94%BB%E6%9B%B8R6.pdf"
                 target="_blank">
                 <div class="link-text">処遇改善計画書</div>
                 <img src="/img/about-link-arrow.svg" alt="background" class="link-arrow">

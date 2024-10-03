@@ -53,25 +53,10 @@
             </div>
             <img src="/img/features-bottom.png" alt="background" class="features-bottom">
         </div>
-        <day />
-        <img src="/img/day-bottom.png" alt="background" class="day-bottom">
-        <interview />
+        <!--<day />
+        <img src="/img/day-bottom.png" alt="background" class="day-bottom">-->
+        <interview style="margin-top: 10%;" />
         <img src="/img/benefits-top.png" alt="background" class="benefits-top">
-        <div class="benefits">
-            <div class="title">
-                福利厚生
-            </div>
-            <div class="content">
-                ●令和5年2月以降、常勤で採用された看護師・准看護師資格を持った方<br>
-                　勤続3か月以上で10万円、半年以上で40万円、1年以上で50万円　計100万円の<br>
-                　就職祝い金を支給することとなりました。<br>
-                　また、奨学金を返済中の方へ最大240万円を助成いたします。<br>
-                <br>
-                ●令和3年4月以降、正規・嘱託・臨時職員として新規採用された方<br>
-                　職種を問わず、勤続3か月以上で就職祝金(10万円)を支給することとなりました。<br>
-                　(退職後3年以上の元職員も含みます)
-            </div>
-        </div>
         <div class="corporation">
             <div class="corporation-title">募集要項：看護師</div>
             <div class="table-container">
@@ -101,6 +86,18 @@
                 </div>
             </div>
 
+        </div>
+        <div class="benefits" style="margin-top: 3%;">
+            <div class="content">
+                ●令和5年2月以降、常勤で採用された看護師・准看護師資格を持った方<br>
+                　勤続3か月以上で10万円、半年以上で40万円、1年以上で50万円　計100万円の<br>
+                　就職祝い金を支給することとなりました。<br>
+                　また、奨学金を返済中の方へ最大240万円を助成いたします。<br>
+                <br>
+                ●令和3年4月以降、正規・嘱託・臨時職員として新規採用された方<br>
+                　職種を問わず、勤続3か月以上で就職祝金(10万円)を支給することとなりました。<br>
+                　(退職後3年以上の元職員も含みます)
+            </div>
         </div>
         <service />
     </div>
