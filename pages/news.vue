@@ -97,7 +97,8 @@ async function fetchArticles() {
         appUid: 'cpSite',
         modelUid: 'news',
         query: {
-            select: ['title', 'date', 'year', 'content', 'category',]
+            select: ['title', 'date', 'year', 'content', 'category',],
+            order: ['-_sys.customOrder']
         }
     });
     console.log(response)

@@ -72,7 +72,8 @@ async function fetchArticles() {
         appUid: 'cpSite',
         modelUid: 'service',
         query: {
-            select: ['title', 'image', 'tags', 'facility']
+            select: ['title', 'image', 'tags', 'facility'],
+            order: ['_sys.customOrder']
         }
     });
     
