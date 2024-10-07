@@ -57,47 +57,17 @@
         <img src="/img/day-bottom.png" alt="background" class="day-bottom">-->
         <interview style="margin-top: 10%;" />
         <img src="/img/benefits-top.png" alt="background" class="benefits-top">
-        <div class="corporation">
-            <div class="corporation-title">募集要項：看護師</div>
+        <div class="corporation" >
+            <div class="corporation-title">求人情報</div>
             <div class="table-container">
-                <div class="column">
-                    <div class="name">雇用形態</div>
-                    <div class="text">正規職員</div>
-                </div>
-                <div class="column">
-                    <div class="name">資格</div>
-                    <div class="text">看護師・准看護師</div>
-                </div>
-                <div class="column">
-                    <div class="name">給与＋手当</div>
-                    <div class="text">208,300円</div>
-                </div>
-                <div class="column">
-                    <div class="name">賞与</div>
-                    <div class="text">年2回（合計4.0ヵ月分）</div>
-                </div>
-                <div class="column">
-                    <div class="name">退職金制度</div>
-                    <div class="text">あり</div>
-                </div>
-                <div class="column">
-                    <div class="name">夜勤</div>
-                    <div class="text">なし</div>
+                <div class="column" v-for="recruit in recruit" :key="recruit._id">
+                    <div class="name"><p>{{ recruit.occupation }}</p></div>
+                    <div class="text" v-html="recruit.content" />
                 </div>
             </div>
-
         </div>
         <div class="benefits" style="margin-top: 3%;">
-            <div class="content">
-                ●令和5年2月以降、常勤で採用された看護師・准看護師資格を持った方<br>
-                　勤続3か月以上で10万円、半年以上で40万円、1年以上で50万円　計100万円の<br>
-                　就職祝い金を支給することとなりました。<br>
-                　また、奨学金を返済中の方へ最大240万円を助成いたします。<br>
-                <br>
-                ●令和3年4月以降、正規・嘱託・臨時職員として新規採用された方<br>
-                　職種を問わず、勤続3か月以上で就職祝金(10万円)を支給することとなりました。<br>
-                　(退職後3年以上の元職員も含みます)
-            </div>
+            <div class="content" v-html="benefits[0].content" />
         </div>
         <service />
     </div>
@@ -109,7 +79,13 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
-onMounted(() => {
+const recruit = ref([]);
+const benefits = ref([]);
+
+onMounted(async () => {
+    recruit.value = await fetchRecruit();
+    benefits.value = (await fetchBenefits()).filter(benefit => benefit.title === "福利厚生");
+    console.log(benefits.value)
     nextTick(() => {
         ScrollTrigger.refresh(true);
         setTimeout(() => {
@@ -220,6 +196,32 @@ const scrollToCorporation = () => {
         window.scrollTo({ top: y, behavior: 'smooth' });
     }
 };
+
+async function fetchRecruit() {
+    const { $newtClient } = useNuxtApp();
+    const response = await $newtClient.getContents({
+        appUid: 'cpSite',
+        modelUid: 'recruitment',
+        query: {
+            select: ['occupation', 'content'],
+            order: ['-_sys.customOrder']
+        }
+    });
+    console.log(response);
+    return response.items;
+}
+async function fetchBenefits() {
+    const { $newtClient } = useNuxtApp();
+    const response = await $newtClient.getContents({
+        appUid: 'cpSite',
+        modelUid: 'text',
+        query: {
+            select: ['title', 'content'],
+        }
+    });
+    console.log(response);
+    return response.items;
+}
 useHead({
     title: '採用情報 | 社会福祉法人 愛宕会',
     meta: [
@@ -471,16 +473,22 @@ useHead({
 
             .name {
                 width: 14vw;
-                height: 4vw;
                 line-height: 4vw;
                 border-bottom: 0.3vw solid white;
                 border-left: none;
                 text-align: center;
                 font-weight: 700;
                 font-size: 1.1vw;
+                position: relative;
+                p {
+                    width: 100%;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                }
                 @media screen and (max-width: 900px) {
                     width: 24vw;
-                    height: 7vw;
                     line-height: 7vw;
                     font-size: 2.5vw;
                     border-bottom: 0.5vw solid white;
@@ -489,23 +497,24 @@ useHead({
 
             .text {
                 width: 35vw;
-                height: 4vw;
-                line-height: 4vw;
                 background-color: white;
                 font-weight: 700;
                 font-size: 1.1vw;
-                padding: 0 8%;
+                padding: 1% 8%;
                 box-sizing: border-box;
+                border-bottom: 0.3vw solid#7ECEF4;
                 @media screen and (max-width: 900px) {
                     width: 65vw;
                     font-size: 2.5vw;
-                    height: 7vw;
-                    line-height: 7vw;
+                    border-bottom: 0.5vw solid #7ECEF4;
                 }
             }
 
             &:last-child {
                 .name {
+                    border-bottom: none;
+                }
+                .text {
                     border-bottom: none;
                 }
             }
