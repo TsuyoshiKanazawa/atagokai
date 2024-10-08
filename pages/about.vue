@@ -87,7 +87,7 @@
                 <div class="link-text">処遇改善計画書</div>
                 <img src="/img/about-link-arrow.svg" alt="background" class="link-arrow">
             </a>
-            <a href="https://atagokai01.assets.newt.so/v1/8f727202-658d-4b48-ae6a-c89db12cf669/r5kouhou.pdf"
+            <a href="https://atagokai01.assets.newt.so/v1/782a3a2d-47a0-47d7-b7be-3045331cf635/R6-kouho.pdf"
                 target="_blank">
                 <div class="link-text">広報</div>
                 <img src="/img/about-link-arrow.svg" alt="background" class="link-arrow">
