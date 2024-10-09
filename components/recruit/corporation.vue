@@ -129,6 +129,9 @@ async function fetchRecruit() {
                     font-size: 2.5vw;
                     border-bottom: 0.5vw solid #7ECEF4;
                 }
+                a {
+                    color: #7ECEF4;
+                }
             }
 
             &:last-child {
