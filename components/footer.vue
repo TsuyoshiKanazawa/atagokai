@@ -132,14 +132,14 @@ footer {
             }
             .sns-container {
                 position: absolute;
-                top: 88%;
-                right: -13%;
+                top: 80%;
+                right: -23%;
                 @media screen and (max-width: 900px) {
                     top: 8%;
                     left: 35%;
                 }
                 img {
-                    width: 3vw;
+                    width: 6vw;
                     @media screen and (max-width: 900px) {
                         width: 6vw;
                     }
