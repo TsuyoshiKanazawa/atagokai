@@ -16,6 +16,11 @@
                 <a href="https://www.town.okinoshima.shimane.jp/www/index.html" target="_blank">
                     <img src="/img/footer-banner1.jpg" alt="banner" class="banner">
                 </a>
+                <div class="sns-container">
+                    <a href="https://www.instagram.com/atagokai_shimane/" target="_blank">
+                        <img src="/img/InstagramLogo.svg" alt="snslogo">
+                    </a>
+                </div>
             </div>
             <div class="right">
                 <ul>
@@ -96,11 +101,13 @@ footer {
         justify-content: space-between;
         padding: 0 10%;
         margin-top: -5%;
+        position: relative;
 
         @media screen and (max-width: 900px) {
             padding: 0 5%;
         }
         .left {
+            position: relative;
             .logo {
                 width: 10vw;
                 @media screen and (max-width: 900px) {
@@ -121,6 +128,21 @@ footer {
                 margin-top: 3%;
                 @media screen and (max-width: 900px) {
                     width: 55vw;
+                }
+            }
+            .sns-container {
+                position: absolute;
+                top: 88%;
+                right: -13%;
+                @media screen and (max-width: 900px) {
+                    top: 8%;
+                    left: 35%;
+                }
+                img {
+                    width: 3vw;
+                    @media screen and (max-width: 900px) {
+                        width: 6vw;
+                    }
                 }
             }
         }
