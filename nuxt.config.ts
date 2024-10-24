@@ -44,4 +44,9 @@ export default defineNuxtConfig({
       },
     },
   },
+  modules: ['nuxt-gtag'],
+  gtag: {
+    id: 'G-MDYDVPF1G6',  // GA4のトラッキングIDを入力
+    debug: true // デバッグモードを有効にします（任意）
+  }
 })
