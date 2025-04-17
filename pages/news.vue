@@ -35,17 +35,25 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 const isMobile = ref(window.innerWidth <= 900);
-const { data: articles, refresh } = await useAsyncData('articles', fetchArticles);
+const { data: articles, refresh } = await useAsyncData('articles', fetchArticles, { immediate: true });
+//console.log(articles.value.items);
 const selectedYear = ref(new Date().getFullYear());
 
 const availableYears = computed(() => {
-    const years = articles.value?.items.map(item => item.year);
-    return Array.from(new Set(years)).sort().reverse();
+  const years = articles.value?.items.map(item => item.year);
+  return Array.from(new Set(years)).sort().reverse();
+});
+
+onMounted(() => {
+  if (!availableYears.value.includes(selectedYear.value)) {
+    selectedYear.value = availableYears.value[0];
+  }
 });
 
 const filteredArticles = computed(() => {
-    return articles.value?.items.filter(article => article.year == selectedYear.value) ?? [];
+  return articles.value?.items.filter(article => article.year == selectedYear.value) ?? [];
 });
+//console.log(filteredArticles.value)
 
 watchEffect(() => {
     const updateWidth = () => {
@@ -61,56 +69,56 @@ watchEffect(() => {
 });
 
 onMounted(async () => {
-    await refresh();
+  await refresh();
 
-    document.querySelectorAll('.news-content').forEach((element) => {
-        gsap.from(element, {
-            scrollTrigger: {
-                trigger: element,
-                start: "top 85%",
-                end: "bottom top",
-                toggleActions: "play none none none",
-            },
-            opacity: 0,
-            duration: 0.5,
-            y: 30
-        });
-    });
-    document.querySelectorAll('.news-content-sp').forEach((element) => {
-        gsap.from(element, {
-            scrollTrigger: {
-                trigger: element,
-                start: "top 85%",
-                end: "bottom top",
-                toggleActions: "play none none none",
-            },
-            opacity: 0,
-            duration: 0.5,
-            y: 30
-        });
-    });
+  document.querySelectorAll('.news-content').forEach((element) => {
+      gsap.from(element, {
+          scrollTrigger: {
+              trigger: element,
+              start: "top 85%",
+              end: "bottom top",
+              toggleActions: "play none none none",
+          },
+          opacity: 0,
+          duration: 0.5,
+          y: 30
+      });
+  });
+  document.querySelectorAll('.news-content-sp').forEach((element) => {
+      gsap.from(element, {
+          scrollTrigger: {
+              trigger: element,
+              start: "top 85%",
+              end: "bottom top",
+              toggleActions: "play none none none",
+          },
+          opacity: 0,
+          duration: 0.5,
+          y: 30
+      });
+  });
 });
 
 async function fetchArticles() {
-    const { $newtClient } = useNuxtApp();
-    const response = await $newtClient.getContents({
-        appUid: 'cpSite',
-        modelUid: 'news',
-        query: {
-            select: ['title', 'date', 'year', 'content', 'category',],
-            order: ['-_sys.customOrder']
-        }
-    });
-    console.log(response)
-    return response;
+  const { $newtClient } = useNuxtApp();
+  const response = await $newtClient.getContents({
+    appUid: 'cpSite',
+    modelUid: 'news',
+    query: {
+      select: ['title', 'date', 'year', 'content', 'category',],
+      order: ['-_sys.customOrder']
+    }
+  });
+  //console.log(response)
+  return response;
 }
 
 function formatDate(dateString) {
-    const date = new Date(dateString);
-    const year = date.getFullYear();
-    const month = String(date.getMonth() + 1).padStart(2, '0');
-    const day = String(date.getDate()).padStart(2, '0');
-    return `${year}.${month}.${day}`;
+  const date = new Date(dateString);
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  return `${year}.${month}.${day}`;
 }
 
 function formatContent(content) {
