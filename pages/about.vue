@@ -82,7 +82,7 @@
                 <div class="link-text">定款・決算書等</div>
                 <img src="/img/about-link-arrow.svg" alt="background" class="link-arrow">
             </a>
-            <a href="https://atagokai01.assets.newt.so/v1/93a1c2c2-5be5-49ac-9a4d-fcedb4c3d411/%E5%87%A6%E9%81%87%E6%94%B9%E5%96%84%E8%A8%88%E7%94%BB%E6%9B%B8R6.pdf"
+            <a href="https://atagokai01.assets.newt.so/v1/7ca7e81d-fce3-4975-bd79-b930e3d1b754/R%EF%BC%97%E5%87%A6%E9%81%87%E6%94%B9%E5%96%84%E8%A8%88%E7%94%BB%E6%9B%B8.pdf"
                 target="_blank">
                 <div class="link-text">処遇改善計画書</div>
                 <img src="/img/about-link-arrow.svg" alt="background" class="link-arrow">
