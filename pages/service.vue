@@ -69,8 +69,9 @@ onMounted(async () => {
 
 async function fetchArticles() {
 	const { $contentfulClient  } = useNuxtApp(); 
-  const response = await $contentfulClient .getEntries({
+	const response = await $contentfulClient .getEntries({
     content_type: 'service', // ← Content model の ID
+    order: "-fields.order",
     select: [
       'fields.title',
       'fields.image',

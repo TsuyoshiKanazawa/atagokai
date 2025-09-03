@@ -47,6 +47,7 @@ async function fetchRecruit() {
 	const { $contentfulClient  } = useNuxtApp(); 
   const response = await $contentfulClient .getEntries({
     content_type: 'recruitment', // ← Content model の ID
+    order: "fields.order",
     select: [
       'fields.occupation',
       'fields.content',

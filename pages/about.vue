@@ -156,7 +156,8 @@ onMounted(() => {
 async function fetchLinks() {
 	const { $contentfulClient  } = useNuxtApp();
 	const response = await $contentfulClient .getEntries({
-		content_type: 'link', // ← Content model の ID
+		content_type: 'link',
+        order: "fields.order",
 		select: [
 			'fields.title',
 			'fields.url',

@@ -103,6 +103,7 @@ async function fetchArticles() {
     const { $contentfulClient  } = useNuxtApp();
   const response = await $contentfulClient .getEntries({
     content_type: 'news', // ← Content model の ID
+    order: "-fields.date",
     select: [
       'fields.title',
       'fields.date',
