@@ -3,8 +3,8 @@
         <div class="corporation-title">求人情報</div>
         <div class="table-container">
             <div class="column" v-for="recruit in recruit" :key="recruit._id">
-                <div class="name"><p>{{ recruit.occupation }}</p></div>
-                <div class="text" v-html="recruit.content" />
+                <div class="name"><p>{{ recruit.fields.occupation }}</p></div>
+                <div class="text" v-html="formatContent(recruit.fields.content)" />
             </div>
         </div>
     </div>
@@ -15,6 +15,9 @@ import { onMounted, ref, nextTick } from 'vue';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
+
+import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
+import { BLOCKS } from '@contentful/rich-text-types'
 
 const recruit = ref([]);
 
@@ -41,16 +44,45 @@ onMounted(async () => {
 });
 
 async function fetchRecruit() {
-    const { $newtClient } = useNuxtApp();
-    const response = await $newtClient.getContents({
-        appUid: 'cpSite',
-        modelUid: 'recruitment',
-        query: {
-            select: ['occupation', 'content'],
-            order: ['-_sys.customOrder']
-        }
-    });
-    return response.items;
+	const { $contentfulClient  } = useNuxtApp(); 
+  const response = await $contentfulClient .getEntries({
+    content_type: 'recruitment', // ← Content model の ID
+    select: [
+      'fields.occupation',
+      'fields.content',
+    ],
+  });
+  console.log(response.items)
+  return response.items;    
+}
+function formatContent(content) {
+  if (!content) return ''
+
+  // Rich Text (object)
+  if (typeof content === 'object') {
+    return documentToHtmlString(content, {
+      // ① テキスト中の改行を <br> に
+      renderText: (text) => text.replace(/\n/g, '<br>'),
+
+      // ② 中身が何もない段落は <p><br></p> を出力して空行を維持
+      renderNode: {
+        [BLOCKS.PARAGRAPH]: (node, next) => {
+          const inner = next(node.content) || ''
+          // <br> を除いた実質テキストが空なら空行として扱う
+          const innerStripped = inner.replace(/<br\s*\/?>/gi, '').trim()
+          if (innerStripped === '') return '<p><br></p>'
+          return `<p>${inner}</p>`
+        },
+      },
+    })
+  }
+
+  // プレーンテキスト(string)の場合は従来通り
+  if (typeof content === 'string') {
+    return content.replace(/\n/g, '<br>')
+  }
+
+  return ''
 }
 </script>
 

@@ -1,6 +1,6 @@
 <template>
     <div class="benefits" style="margin-top: 3%;">
-        <div class="content" v-html="benefits"></div>
+        <div class="content" v-html="formatContent(benefits)"></div>
     </div>
 </template>
 
@@ -10,11 +10,15 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
+import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
+import { BLOCKS } from '@contentful/rich-text-types'
+
 const benefits = ref([]);
+//console.log(benefits.value)
 
 onMounted(async () => {
     benefits.value = await fetchBenefits();
-    console.log(benefits.value)
+    //console.log(benefits.value)
     nextTick(() => {
         ScrollTrigger.refresh(true);
         setTimeout(() => {
@@ -34,16 +38,46 @@ onMounted(async () => {
 });
 
 async function fetchBenefits() {
-    const { $newtClient } = useNuxtApp();
-    const response = await $newtClient.getContents({
-        appUid: 'cpSite',
-        modelUid: 'text',
-        query: {
-            select: ['title', 'content'],
-        }
-    });
-    //console.log(response.items[0].content);
-    return response.items[0].content;
+
+	const { $contentfulClient  } = useNuxtApp();
+  const response = await $contentfulClient .getEntries({
+    content_type: 'text', // ← Content model の ID
+    select: [
+      'fields.title',
+      'fields.content',
+    ]
+  });
+  //console.log(response.items[0].fields.content)
+  return response.items[0].fields.content;   
+}
+function formatContent(content) {
+  if (!content) return ''
+
+  // Rich Text (object)
+  if (typeof content === 'object') {
+    return documentToHtmlString(content, {
+      // ① テキスト中の改行を <br> に
+      renderText: (text) => text.replace(/\n/g, '<br>'),
+
+      // ② 中身が何もない段落は <p><br></p> を出力して空行を維持
+      renderNode: {
+        [BLOCKS.PARAGRAPH]: (node, next) => {
+          const inner = next(node.content) || ''
+          // <br> を除いた実質テキストが空なら空行として扱う
+          const innerStripped = inner.replace(/<br\s*\/?>/gi, '').trim()
+          if (innerStripped === '') return '<p><br></p>'
+          return `<p>${inner}</p>`
+        },
+      },
+    })
+  }
+
+  // プレーンテキスト(string)の場合は従来通り
+  if (typeof content === 'string') {
+    return content.replace(/\n/g, '<br>')
+  }
+
+  return ''
 }
 </script>
 

@@ -39,16 +39,16 @@
         </div>
         <div class="news-conteiner">
           <div v-if="!isMobile" v-for="(article, index) in firstTwoArticles" :key="index" class="news-content">
-            <div class="date">{{ formatDate(article.date) }}</div>
-            <div class="category">{{ article.category }}</div>
-            <div class="content" v-html="formatContent(article.content)"></div>
+            <div class="date">{{ formatDate(article.fields.date) }}</div>
+            <div class="category">{{ article.fields.category }}</div>
+            <div class="content" v-html="formatContent(article.fields.content)"></div>
           </div>
           <div v-if="isMobile" v-for="(article, index) in firstTwoArticles" :key="index" class="news-content-sp">
             <div class="news-content-top">
-              <div class="date">{{ formatDate(article.date) }}</div>
-              <div class="category">{{ article.category }}</div>
+              <div class="date">{{ formatDate(article.fields.date) }}</div>
+              <div class="category">{{ article.fields.category }}</div>
             </div>
-            <div class="content" v-html="formatContent(article.content)"></div>
+            <div class="content" v-html="formatContent(article.fields.content)"></div>
           </div>
         </div>
         <nuxt-link to="/news" class="link">
@@ -72,13 +72,14 @@ gsap.registerPlugin(ScrollTrigger);
 const windowWidth = ref(window.innerWidth);
 const isMobile = ref(window.innerWidth <= 900);
 const { data: articles, refresh } = await useAsyncData('articles', fetchArticles);
-const processedArticles = computed(() => articles.value?.items ?? []);
+const processedArticles = computed(() => articles.value ?? []);
 
 const firstTwoArticles = computed(() => {
   // isMobileの値に基づいて表示する記事数を決定
   const articleLimit = isMobile.value ? 3 : 5;
   return processedArticles.value.slice(0, articleLimit);
 });
+//console.log(articles.value)
 
 watchEffect(() => {
   const updateWidth = () => {
@@ -148,16 +149,20 @@ onMounted(async () => {
 });
 
 async function fetchArticles() {
-  const { $newtClient } = useNuxtApp();
-  const response = await $newtClient.getContents({
-    appUid: 'cpSite',
-    modelUid: 'news',
-    query: {
-      select: ['title', 'date', 'year', 'content', 'category',]
-    }
+  const { $contentfulClient  } = useNuxtApp();
+  const response = await $contentfulClient .getEntries({
+    content_type: 'news', // ← Content model の ID
+    select: [
+      'fields.title',
+      'fields.date',
+      'fields.year',
+      'fields.content',
+      'fields.category'
+    ],
+    limit: 5
   });
-  console.log(response)
-  return response;
+  //console.log(response.items)
+  return response.items;                 
 }
 
 function formatDate(dateString) {

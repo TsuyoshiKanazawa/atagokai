@@ -1,5 +1,4 @@
 <template>
-
     <div class="about">
         <div class="about-top">
             <img src="/img/about-top.png" alt="background" class="about-top-image">
@@ -73,25 +72,10 @@
             <img src="/img/history.png" alt="background" class="history-image">
         </div>
         <div class="link">
-            <a href="https://atagokai01.assets.newt.so/v1/e16e3d20-bb3c-43ac-a311-6a132ce391a2/%E4%B8%80%E8%88%AC%E4%BA%8B%E6%A5%AD%E4%B8%BB%E8%A1%8C%E5%8B%95%E8%A8%88%E7%94%BB.pdf" target="_blank">
-                <div class="link-text">行動計画</div>
-                <img src="/img/about-link-arrow.svg" alt="background" class="link-arrow">
-            </a>
-            <a href="https://www.wam.go.jp/wamnet/zaihyoukaiji/pub/PUB0201000E00.do?_FORMID=PUB0219000&vo_headVO_corporationId=1632112172"
-                target="_blank">
-                <div class="link-text">定款・決算書等</div>
-                <img src="/img/about-link-arrow.svg" alt="background" class="link-arrow">
-            </a>
-            <a href="https://atagokai01.assets.newt.so/v1/7ca7e81d-fce3-4975-bd79-b930e3d1b754/R%EF%BC%97%E5%87%A6%E9%81%87%E6%94%B9%E5%96%84%E8%A8%88%E7%94%BB%E6%9B%B8.pdf"
-                target="_blank">
-                <div class="link-text">処遇改善計画書</div>
-                <img src="/img/about-link-arrow.svg" alt="background" class="link-arrow">
-            </a>
-            <a href="https://atagokai01.assets.newt.so/v1/ca9aa64a-f8c2-4973-8733-4f54521bca8b/R7kouhou-atagokai.pdf"
-                target="_blank">
-                <div class="link-text">広報</div>
-                <img src="/img/about-link-arrow.svg" alt="background" class="link-arrow">
-            </a>
+					<a v-for="link in links" :key="link.fields.title" :href="link.fields.url" target="_blank">
+						<div class="link-text">{{ link.fields.title }}</div>
+						<img src="/img/about-link-arrow.svg" alt="background" class="link-arrow">
+					</a>
         </div>
         <recruitLink />
         <service />
@@ -105,6 +89,9 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { nextTick } from 'vue';
 gsap.registerPlugin(ScrollTrigger);
+
+const { data: links, refresh } = await useAsyncData('links', fetchLinks);
+console.log(links.value)
 
 onMounted(() => {
     nextTick(() => {
@@ -165,6 +152,20 @@ onMounted(() => {
     });
 
 });
+
+async function fetchLinks() {
+	const { $contentfulClient  } = useNuxtApp();
+	const response = await $contentfulClient .getEntries({
+		content_type: 'link', // ← Content model の ID
+		select: [
+			'fields.title',
+			'fields.url',
+		]
+	});
+	//console.log(response.items)
+	return response.items;
+}
+
 
 useHead({
   title: '愛宕会について | 社会福祉法人 愛宕会',

@@ -11,16 +11,16 @@
         </div>
         <div class="news-conteiner">
             <div v-if="!isMobile" v-for="(article, index) in filteredArticles" :key="index" class="news-content">
-                <div class="date">{{ formatDate(article.date) }}</div>
-                <div class="category">{{ article.category }}</div>
-                <div class="content" v-html="formatContent(article.content)"></div>
+                <div class="date">{{ formatDate(article.fields.date) }}</div>
+                <div class="category">{{ article.fields.category }}</div>
+                <div class="content" v-html="formatContent(article.fields.content)"></div>
             </div>
             <div v-if="isMobile" v-for="(article, index) in filteredArticles" :key="index" class="news-content-sp">
                 <div class="news-content-top">
-                    <div class="date">{{ formatDate(article.date) }}</div>
-                    <div class="category">{{ article.category }}</div>
+                    <div class="date">{{ formatDate(article.fields.date) }}</div>
+                    <div class="category">{{ article.fields.category }}</div>
                 </div>
-                <div class="content" v-html="formatContent(article.content) "></div>
+                <div class="content" v-html="formatContent(article.fields.content) "></div>
             </div>
         </div>
         <recruitLink />
@@ -40,7 +40,7 @@ const { data: articles, refresh } = await useAsyncData('articles', fetchArticles
 const selectedYear = ref(new Date().getFullYear());
 
 const availableYears = computed(() => {
-  const years = articles.value?.items.map(item => item.year);
+  const years = articles.value?.map(item => item.fields.year);
   return Array.from(new Set(years)).sort().reverse();
 });
 
@@ -51,7 +51,7 @@ onMounted(() => {
 });
 
 const filteredArticles = computed(() => {
-  return articles.value?.items.filter(article => article.year == selectedYear.value) ?? [];
+  return articles.value?.filter(article => article.fields.year == selectedYear.value) ?? [];
 });
 //console.log(filteredArticles.value)
 
@@ -100,17 +100,19 @@ onMounted(async () => {
 });
 
 async function fetchArticles() {
-  const { $newtClient } = useNuxtApp();
-  const response = await $newtClient.getContents({
-    appUid: 'cpSite',
-    modelUid: 'news',
-    query: {
-      select: ['title', 'date', 'year', 'content', 'category',],
-      order: ['-_sys.customOrder']
-    }
+    const { $contentfulClient  } = useNuxtApp();
+  const response = await $contentfulClient .getEntries({
+    content_type: 'news', // ← Content model の ID
+    select: [
+      'fields.title',
+      'fields.date',
+      'fields.year',
+      'fields.content',
+      'fields.category'
+    ],
   });
-  //console.log(response)
-  return response;
+  console.log(response.items)
+  return response.items;    
 }
 
 function formatDate(dateString) {

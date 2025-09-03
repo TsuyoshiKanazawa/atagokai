@@ -8,24 +8,24 @@
             </div>
         </div>
         <div class="service-contents">
-            <div v-for="article in reversedArticles" :key="article.title" class="service-item">
+            <div v-for="article in reversedArticles" :key="article.fields.title" class="service-item">
                 <div class="left">
-                    <img v-if="article.image" :src="article.image.src" alt="サービス画像" class="service-image">
+                    <img v-if="article.fields.image" :src="article.fields.image.fields.file.url" alt="サービス画像" class="service-image">
                     <img v-else src="/img/noImage.jpg" alt="サービス画像" class="service-image">
                     <div class="tag-container">
-                        <a v-for="tags in article.tags" :key="tags" class="tag" :href="tags.data.tag_link" target="_blank">
-                            <div>{{ tags.data.tag_name }}</div>
+                        <a v-for="tags in article.fields.tags" :key="tags" class="tag" :href="tags.fields.img.fields.file.url" target="_blank">
+                            <div>{{ tags.fields.tag_name }}</div>
                             <div class="arrow">→</div>
                         </a>
                     </div>
                 </div>
                 <div class="right">
-                    <div v-for="facilityDetail in article.facility" :key="facilityDetail._id" class="facility-detail"
-                        :class="[{'day-service': facilityDetail.service === 'デイサービス'}]">
-                        <div class="service">{{ facilityDetail.service }}</div>
-                        <div class="title">{{ facilityDetail.title }}</div>
+                    <div v-for="facilityDetail in article.fields.facility" :key="facilityDetail._id" class="facility-detail"
+                        :class="[{'day-service': facilityDetail.fields.service === 'デイサービス'}]">
+                        <div class="service">{{ facilityDetail.fields.service }}</div>
+                        <div class="title">{{ facilityDetail.fields.title }}</div>
                         <hr>
-                        <p v-html="formatContent(facilityDetail.content)" class="content"></p>
+                        <p v-html="formatContent(facilityDetail.fields.content)" class="content"></p>
                     </div>
                 </div>
             </div>
@@ -42,6 +42,7 @@ import { computed } from 'vue';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { nextTick } from 'vue';
+import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
 
 gsap.registerPlugin(ScrollTrigger);
 const { data: articles, refresh } = await useAsyncData('articles', fetchArticles);
@@ -67,26 +68,40 @@ onMounted(async () => {
 });
 
 async function fetchArticles() {
-    const { $newtClient } = useNuxtApp();
-    const response = await $newtClient.getContents({
-        appUid: 'cpSite',
-        modelUid: 'service',
-        query: {
-            select: ['title', 'image', 'tags', 'facility'],
-            order: ['_sys.customOrder']
-        }
-    });
-    
-    return response;
+	const { $contentfulClient  } = useNuxtApp(); 
+  const response = await $contentfulClient .getEntries({
+    content_type: 'service', // ← Content model の ID
+    select: [
+      'fields.title',
+      'fields.image',
+      'fields.tags',
+      'fields.facility',
+    ],
+  });
+  console.log(response.items)
+  return response.items;    
 }
 
 function formatContent(content) {
-    return content.replace(/\n/g, '<br>');
+  if (!content) return ''
+  // Rich Text (object) ならHTMLへ
+  if (typeof content === 'object') {
+    try {
+      return documentToHtmlString(content)
+    } catch (e) {
+      console.warn('RichText変換に失敗:', e)
+      return ''
+    }
+  }
+  // プレーンテキスト(string)なら改行置換
+  if (typeof content === 'string') {
+    return content.replace(/\n/g, '<br>')
+  }
+  return ''
 }
-
 const reversedArticles = computed(() => {
   // articles.itemsが存在する場合、その逆順のコピーを返します。
-  return articles.value.items.slice().reverse();
+  return articles.value.slice().reverse();
 });
 
 
